@@ -3,32 +3,34 @@
 import React, { useEffect, useRef, useState } from "react";
 
 export function CustomCursor() {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const textRef = useRef<HTMLSpanElement>(null);
+  const dotRef = useRef<HTMLDivElement>(null);
+  const ringRef = useRef<HTMLDivElement>(null);
   const [cursorText, setCursorText] = useState<string>("");
   const [isHovered, setIsHovered] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);
-  const [cursorMode, setCursorMode] = useState<"default" | "view" | "drag" | "explore">("default");
 
   useEffect(() => {
-    // Only enable on desktop devices with a fine pointer (mouse)
+    // Only enable on desktop with fine pointer
     const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-    if (!isFinePointer || window.innerWidth < 1024) {
-      return;
-    }
+    if (!isFinePointer || window.innerWidth < 1024) return;
 
     let mouseX = -100;
     let mouseY = -100;
-    let currentX = -100;
-    let currentY = -100;
-    let animationFrameId: number;
+    let ringX = -100;
+    let ringY = -100;
+    let animId: number;
 
     const onMouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
       if (!isVisible) setIsVisible(true);
 
-      // Detect hover target attributes
+      // Instant pinpoint dot positioning
+      if (dotRef.current) {
+        dotRef.current.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      }
+
+      // Check hover targets
       const target = e.target as HTMLElement | null;
       if (!target) return;
 
@@ -36,64 +38,53 @@ export function CustomCursor() {
       if (cursorTarget) {
         const type = cursorTarget.getAttribute("data-cursor");
         if (type === "view") {
-          setCursorMode("view");
           setCursorText("VIEW");
           setIsHovered(true);
         } else if (type === "drag") {
-          setCursorMode("drag");
           setCursorText("DRAG");
           setIsHovered(true);
         } else if (type === "explore") {
-          setCursorMode("explore");
           setCursorText("EXPLORE");
           setIsHovered(true);
         } else {
-          setCursorMode("default");
           setCursorText("");
           setIsHovered(true);
         }
       } else if (target.closest("button, a, input, select, textarea")) {
-        setCursorMode("default");
         setCursorText("");
         setIsHovered(true);
       } else {
-        setCursorMode("default");
         setCursorText("");
         setIsHovered(false);
       }
     };
 
-    const onMouseLeave = () => {
-      setIsVisible(false);
-    };
+    const onMouseLeave = () => setIsVisible(false);
+    const onMouseEnter = () => setIsVisible(true);
 
-    const onMouseEnter = () => {
-      setIsVisible(true);
-    };
-
-    // Smooth physics loop
+    // Spring physics render loop for the outer ring
     const render = () => {
-      const ease = 0.16;
-      currentX += (mouseX - currentX) * ease;
-      currentY += (mouseY - currentY) * ease;
+      const ease = 0.18;
+      ringX += (mouseX - ringX) * ease;
+      ringY += (mouseY - ringY) * ease;
 
-      if (cursorRef.current) {
-        cursorRef.current.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+      if (ringRef.current) {
+        ringRef.current.style.transform = `translate3d(${ringX}px, ${ringY}px, 0)`;
       }
 
-      animationFrameId = requestAnimationFrame(render);
+      animId = requestAnimationFrame(render);
     };
 
     window.addEventListener("mousemove", onMouseMove, { passive: true });
     document.addEventListener("mouseleave", onMouseLeave);
     document.addEventListener("mouseenter", onMouseEnter);
-    animationFrameId = requestAnimationFrame(render);
+    animId = requestAnimationFrame(render);
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       document.removeEventListener("mouseenter", onMouseEnter);
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(animId);
     };
   }, [isVisible]);
 
@@ -101,39 +92,48 @@ export function CustomCursor() {
     return null;
   }
 
-  const isExpanded = isHovered && cursorText !== "";
-  const isButtonHover = isHovered && cursorText === "";
+  const isTextMode = isHovered && cursorText !== "";
+  const isButtonMode = isHovered && cursorText === "";
 
   return (
-    <div
-      ref={cursorRef}
-      className={`fixed top-0 left-0 pointer-events-none z-[9999] transition-opacity duration-300 ${
-        isVisible ? "opacity-100" : "opacity-0"
-      }`}
-      style={{
-        transform: "translate3d(-100px, -100px, 0)",
-        willChange: "transform",
-      }}
-      aria-hidden="true"
-    >
+    <>
+      {/* 1. Fast Inner Pinpoint Dot */}
       <div
-        className={`-translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center transition-all duration-300 ease-out ${
-          isExpanded
-            ? "w-20 h-20 bg-warm-ivory text-charcoal shadow-2xl backdrop-blur-md border border-charcoal/10"
-            : isButtonHover
-            ? "w-10 h-10 bg-charcoal/20 border border-charcoal/40 backdrop-blur-[2px]"
-            : "w-3 h-3 bg-charcoal"
+        ref={dotRef}
+        className={`fixed top-0 left-0 pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-200 ${
+          isVisible && !isTextMode ? "opacity-100" : "opacity-0"
         }`}
+        style={{ transform: "translate3d(-100px, -100px, 0)", willChange: "transform" }}
+        aria-hidden="true"
       >
-        {isExpanded && (
-          <span
-            ref={textRef}
-            className="text-[10px] font-sans font-semibold tracking-[0.25em] select-none uppercase pl-[0.25em]"
-          >
-            {cursorText}
-          </span>
-        )}
+        <div className="w-1.5 h-1.5 rounded-full bg-charcoal" />
       </div>
-    </div>
+
+      {/* 2. Fluid Trailing Ring / Bubble with Micro-Interactions */}
+      <div
+        ref={ringRef}
+        className={`fixed top-0 left-0 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 ${
+          isVisible ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ transform: "translate3d(-100px, -100px, 0)", willChange: "transform" }}
+        aria-hidden="true"
+      >
+        <div
+          className={`rounded-full flex items-center justify-center transition-all duration-300 ease-out ${
+            isTextMode
+              ? "w-20 h-20 bg-warm-ivory text-charcoal shadow-2xl border border-charcoal/15 backdrop-blur-md scale-100"
+              : isButtonMode
+              ? "w-11 h-11 border border-charcoal/35 bg-charcoal/5 backdrop-blur-[1px] scale-110"
+              : "w-8 h-8 border border-charcoal/25 bg-transparent scale-90"
+          }`}
+        >
+          {isTextMode && (
+            <span className="text-[10px] font-sans font-semibold tracking-[0.25em] select-none uppercase pl-[0.25em] text-charcoal animate-pulse">
+              {cursorText}
+            </span>
+          )}
+        </div>
+      </div>
+    </>
   );
 }

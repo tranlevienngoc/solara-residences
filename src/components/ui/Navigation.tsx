@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { MagneticButton } from "./MagneticButton";
+import { AmbientSound } from "./AmbientSound";
 
 const NAV_LINKS = [
   { label: "RESIDENCES", href: "#residences" },
@@ -94,8 +95,10 @@ export function Navigation() {
             ))}
           </nav>
 
-          {/* Desktop Right CTA */}
-          <div className="hidden lg:flex items-center space-x-6">
+          {/* Desktop Right CTA & Ambient Soundscape */}
+          <div className="hidden lg:flex items-center space-x-5">
+            <AmbientSound />
+
             <MagneticButton href="#enquiry" dataCursor="explore">
               <span className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-charcoal/30 text-charcoal text-[11px] font-sans tracking-[0.22em] uppercase font-medium hover:bg-charcoal hover:text-warm-ivory transition-all duration-400 ease-out shadow-sm">
                 ENQUIRE

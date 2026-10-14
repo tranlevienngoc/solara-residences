@@ -8,30 +8,39 @@ import { Amenity } from "@/lib/types";
 export function LifestyleAmenitiesSection() {
   const [activeAmenity, setActiveAmenity] = useState<Amenity>(AMENITIES_DATA[0]);
   const [isHovered, setIsHovered] = useState<boolean>(false);
-  const [mousePos, setMousePos] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const floatingImageRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let animId: number;
-    let targetX = mousePos.x;
-    let targetY = mousePos.y;
-    let currentX = mousePos.x;
-    let currentY = mousePos.y;
+    let targetX = -200;
+    let targetY = -200;
+    let currentX = -200;
+    let currentY = -200;
+    let lastX = 0;
+    let velocityX = 0;
+    let tilt = 0;
 
     const onMouseMove = (e: MouseEvent) => {
       targetX = e.clientX;
       targetY = e.clientY;
+      velocityX = e.clientX - lastX;
+      lastX = e.clientX;
     };
 
     const render = () => {
       currentX += (targetX - currentX) * 0.12;
       currentY += (targetY - currentY) * 0.12;
 
+      // Calculate tilt based on mouse velocity
+      const targetTilt = Math.max(-12, Math.min(12, velocityX * 0.35));
+      tilt += (targetTilt - tilt) * 0.1;
+      velocityX *= 0.85;
+
       if (floatingImageRef.current) {
-        floatingImageRef.current.style.transform = `translate3d(${currentX + 30}px, ${
+        floatingImageRef.current.style.transform = `translate3d(${currentX + 35}px, ${
           currentY - 140
-        }px, 0)`;
+        }px, 0) rotate(${tilt}deg)`;
       }
 
       animId = requestAnimationFrame(render);
@@ -44,7 +53,7 @@ export function LifestyleAmenitiesSection() {
       window.removeEventListener("mousemove", onMouseMove);
       cancelAnimationFrame(animId);
     };
-  }, [mousePos]);
+  }, []);
 
   return (
     <section
@@ -73,9 +82,9 @@ export function LifestyleAmenitiesSection() {
           </p>
         </div>
 
-        {/* Big Typography Amenity List */}
-        <div className="flex flex-col border-t border-charcoal/15">
-          {AMENITIES_DATA.map((amenity, index) => {
+        {/* Big Typography Amenity List with Group Dimming & Dual-Layer Roll */}
+        <div className="flex flex-col border-t border-charcoal/15 group/list">
+          {AMENITIES_DATA.map((amenity) => {
             const isCurrent = activeAmenity.id === amenity.id;
             return (
               <div
@@ -85,23 +94,29 @@ export function LifestyleAmenitiesSection() {
                   setIsHovered(true);
                 }}
                 onMouseLeave={() => setIsHovered(false)}
-                className="group relative py-7 md:py-10 border-b border-charcoal/15 cursor-pointer transition-all duration-300"
+                className={`group relative py-7 md:py-10 border-b border-charcoal/15 cursor-pointer transition-opacity duration-400 ${
+                  isHovered && !isCurrent ? "opacity-25" : "opacity-100"
+                }`}
               >
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="flex items-baseline space-x-6 md:space-x-12">
                     <span className="text-xs md:text-sm font-sans tracking-[0.25em] text-charcoal/40 uppercase group-hover:text-charcoal transition-colors">
                       {amenity.number}
                     </span>
-                    <h3 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-light text-charcoal tracking-wide uppercase transition-all duration-400 group-hover:italic group-hover:translate-x-3">
-                      {amenity.title}
-                    </h3>
+
+                    {/* Dual Layer Rolling Text Effect */}
+                    <div className="overflow-hidden">
+                      <h3 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-light text-charcoal tracking-wide uppercase transition-transform duration-500 ease-out group-hover:translate-x-3 group-hover:italic">
+                        {amenity.title}
+                      </h3>
+                    </div>
                   </div>
 
                   <div className="flex items-center space-x-6">
                     <span className="text-xs font-sans tracking-[0.2em] uppercase text-charcoal/60 hidden sm:inline-block">
                       {amenity.subtitle}
                     </span>
-                    <span className="text-xl md:text-2xl text-charcoal/30 group-hover:text-charcoal group-hover:translate-x-1 transition-all">
+                    <span className="text-xl md:text-2xl text-charcoal/30 group-hover:text-charcoal group-hover:translate-x-2 transition-all">
                       →
                     </span>
                   </div>
@@ -131,15 +146,14 @@ export function LifestyleAmenitiesSection() {
         </div>
       </div>
 
-      {/* Desktop Floating Image Follower on Hover */}
+      {/* Desktop Floating Image Follower with Dynamic Velocity Tilt */}
       <div
         ref={floatingImageRef}
-        className={`fixed top-0 left-0 w-80 lg:w-96 h-56 lg:h-64 pointer-events-none z-30 overflow-hidden shadow-2xl transition-opacity duration-300 ease-out hidden md:block bg-charcoal/10 ${
+        className={`fixed top-0 left-0 w-80 lg:w-96 h-56 lg:h-64 pointer-events-none z-30 overflow-hidden shadow-2xl transition-opacity duration-300 ease-out hidden md:block bg-charcoal/10 will-change-transform ${
           isHovered ? "opacity-100 scale-100" : "opacity-0 scale-95"
         }`}
         style={{
           transform: "translate3d(-200px, -200px, 0)",
-          willChange: "transform",
         }}
       >
         <Image
@@ -150,9 +164,9 @@ export function LifestyleAmenitiesSection() {
           sizes="400px"
           className="object-cover transition-transform duration-700 ease-out hover:scale-105"
         />
-        <div className="absolute bottom-3 left-3 right-3 bg-warm-ivory/90 backdrop-blur-md px-3 py-1.5 text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal flex justify-between">
-          <span>{activeAmenity.title}</span>
-          <span>{activeAmenity.subtitle}</span>
+        <div className="absolute bottom-3 left-3 right-3 bg-warm-ivory/95 backdrop-blur-md px-3.5 py-2 text-[10px] font-sans tracking-[0.2em] uppercase text-charcoal flex justify-between shadow-sm">
+          <span className="font-medium">{activeAmenity.title}</span>
+          <span className="text-charcoal/60">{activeAmenity.subtitle}</span>
         </div>
       </div>
     </section>

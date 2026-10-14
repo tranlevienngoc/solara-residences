@@ -10,14 +10,32 @@ interface PreloaderProps {
 export function Preloader({ onComplete }: PreloaderProps) {
   const [count, setCount] = useState<number>(0);
   const [isFinished, setIsFinished] = useState<boolean>(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const curtainRef = useRef<HTMLDivElement>(null);
+  const leftCurtainRef = useRef<HTMLDivElement>(null);
+  const rightCurtainRef = useRef<HTMLDivElement>(null);
+  const centerContentRef = useRef<HTMLDivElement>(null);
+  const archRingRef = useRef<SVGCircleElement>(null);
+  const crosshairRef = useRef<SVGGElement>(null);
 
   useEffect(() => {
-    // Stepped luxury counter: 0 -> 23 -> 48 -> 72 -> 100
-    const sequence = [0, 23, 48, 72, 100];
+    // Stepped luxury counter sequence
+    const sequence = [0, 18, 37, 54, 76, 92, 100];
     let stepIndex = 0;
+
+    // SVG stroke entrance animation
+    if (archRingRef.current) {
+      gsap.fromTo(
+        archRingRef.current,
+        { strokeDashoffset: 120 },
+        { strokeDashoffset: 0, duration: 1.8, ease: "power2.inOut" }
+      );
+    }
+    if (crosshairRef.current) {
+      gsap.fromTo(
+        crosshairRef.current,
+        { scale: 0, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 1.2, ease: "back.out(1.4)" }
+      );
+    }
 
     const interval = setInterval(() => {
       stepIndex += 1;
@@ -27,7 +45,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
         clearInterval(interval);
         triggerExit();
       }
-    }, 380);
+    }, 280);
 
     const triggerExit = () => {
       const tl = gsap.timeline({
@@ -37,23 +55,24 @@ export function Preloader({ onComplete }: PreloaderProps) {
         },
       });
 
-      // 1. Fade out the text & counter gently
-      tl.to(contentRef.current, {
+      // 1. Center logo & counter gently dissolve and scale slightly
+      tl.to(centerContentRef.current, {
         opacity: 0,
-        y: -20,
-        duration: 0.6,
+        scale: 0.95,
+        duration: 0.7,
         ease: "power2.inOut",
       });
 
-      // 2. Architectural curtain lifts up with quiet luxury easing
+      // 2. Dual architectural curtain split: Left sweeps left, Right sweeps right
       tl.to(
-        curtainRef.current,
+        [leftCurtainRef.current, rightCurtainRef.current],
         {
-          yPercent: -100,
-          duration: 1.1,
-          ease: "power4.inOut",
+          xPercent: (i) => (i === 0 ? -100 : 100),
+          duration: 1.3,
+          stagger: 0.05,
+          ease: "expo.inOut",
         },
-        "-=0.2"
+        "-=0.3"
       );
     };
 
@@ -66,63 +85,82 @@ export function Preloader({ onComplete }: PreloaderProps) {
 
   return (
     <div
-      ref={containerRef}
-      className="fixed inset-0 z-[10000] pointer-events-auto"
+      className="fixed inset-0 z-[10000] pointer-events-auto flex overflow-hidden select-none"
       aria-live="polite"
       aria-label="Loading Solara Residences"
     >
+      {/* Left Architectural Curtain Panel */}
       <div
-        ref={curtainRef}
-        className="w-full h-full bg-[#F2EFE8] text-charcoal flex flex-col items-center justify-between p-8 md:p-14 relative"
+        ref={leftCurtainRef}
+        className="w-1/2 h-full bg-[#F2EFE8] border-r border-charcoal/10 relative flex flex-col justify-between p-8 md:p-14"
       >
-        {/* Top subtle brand mark */}
-        <div className="w-full flex justify-between items-center text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-charcoal/60">
-          <span>DA NANG</span>
-          <span>VIETNAM</span>
+        <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-charcoal/50">
+          DA NANG · VIETNAM
+        </span>
+        <div className="text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-charcoal/40">
+          16°03&apos;24&quot;N 108°14&apos;45&quot;E
         </div>
+      </div>
 
-        {/* Center monumental typography */}
-        <div ref={contentRef} className="flex flex-col items-center text-center my-auto">
-          {/* Subtle architectural emblem */}
-          <div className="mb-6 opacity-60">
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 40 40"
-              fill="none"
+      {/* Right Architectural Curtain Panel */}
+      <div
+        ref={rightCurtainRef}
+        className="w-1/2 h-full bg-[#F2EFE8] border-l border-charcoal/10 relative flex flex-col justify-between p-8 md:p-14 items-end"
+      >
+        <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-charcoal/50">
+          COLLECTION 2026
+        </span>
+        <div className="text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-charcoal/40">
+          LIMITED 28 HOMES
+        </div>
+      </div>
+
+      {/* Floating Center Identity & Counter (fixed across both curtains) */}
+      <div
+        ref={centerContentRef}
+        className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
+      >
+        {/* Animated Architectural Crosshair Emblem */}
+        <div className="mb-6 relative w-16 h-16 flex items-center justify-center">
+          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" className="text-charcoal">
+            <circle
+              ref={archRingRef}
+              cx="32"
+              cy="32"
+              r="28"
               stroke="currentColor"
-              strokeWidth="1.2"
-              className="animate-pulse"
-            >
-              <circle cx="20" cy="20" r="18" strokeDasharray="1 3" />
-              <circle cx="20" cy="20" r="11" />
-              <line x1="20" y1="2" x2="20" y2="38" />
-              <line x1="2" y1="20" x2="38" y2="20" />
-            </svg>
-          </div>
+              strokeWidth="0.8"
+              strokeDasharray="4 4"
+              className="opacity-40 animate-spin"
+              style={{ animationDuration: "24s" }}
+            />
+            <circle cx="32" cy="32" r="18" stroke="currentColor" strokeWidth="0.8" className="opacity-60" />
+            <g ref={crosshairRef}>
+              <line x1="32" y1="6" x2="32" y2="58" stroke="currentColor" strokeWidth="0.8" className="opacity-50" />
+              <line x1="6" y1="32" x2="58" y2="32" stroke="currentColor" strokeWidth="0.8" className="opacity-50" />
+            </g>
+          </svg>
+        </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl tracking-[0.18em] font-light text-charcoal uppercase pl-[0.18em]">
-            SOLARA
-          </h1>
-          <span className="text-[11px] md:text-xs tracking-[0.35em] uppercase text-charcoal/70 mt-3 font-sans">
-            RESIDENCES
+        {/* Monogram / Title */}
+        <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl tracking-[0.2em] font-light text-charcoal uppercase pl-[0.2em]">
+          SOLARA
+        </h1>
+        <span className="text-xs tracking-[0.4em] uppercase text-charcoal/60 mt-3 font-sans font-light">
+          RESIDENCES
+        </span>
+
+        {/* Rolling Counter */}
+        <div className="mt-12 flex items-baseline gap-2">
+          <span className="font-serif text-4xl sm:text-6xl font-light text-charcoal tabular-nums">
+            {formattedCount}
           </span>
-
-          {/* Stepped counter */}
-          <div className="mt-12 flex items-baseline gap-2">
-            <span className="font-serif text-4xl md:text-5xl font-light text-charcoal tabular-nums">
-              {formattedCount}
-            </span>
-            <span className="text-xs font-sans tracking-[0.2em] text-charcoal/50">/ 100</span>
-          </div>
+          <span className="text-xs font-sans tracking-[0.25em] text-charcoal/40">/ 100</span>
         </div>
 
-        {/* Bottom tagline */}
-        <div className="w-full text-center">
-          <p className="text-[11px] tracking-[0.3em] uppercase text-charcoal/50 font-sans">
-            A place shaped by light.
-          </p>
-        </div>
+        <p className="text-[11px] tracking-[0.3em] uppercase text-charcoal/50 font-sans mt-6">
+          A place shaped by light.
+        </p>
       </div>
     </div>
   );

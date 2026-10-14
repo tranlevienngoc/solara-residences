@@ -175,6 +175,43 @@ html.lenis, html.lenis body {
   transform-origin: left;
 }
 
+/* Dual Layer Text Roll for Luxury Hover */
+.text-roll {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  height: 1.2em;
+}
+
+.text-roll-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .text-roll-inner {
+  transform: translateY(-50%);
+}
+
+/* Architectural Arch Portal */
+.arch-portal {
+  border-radius: 120vw 120vw 0 0;
+}
+@media (min-width: 768px) {
+  .arch-portal {
+    border-radius: 40vw 40vw 0 0;
+  }
+}
+
+/* 3D Perspective Utilities */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
 /* Noise texture overlay for editorial depth */
 .grain-overlay {
   position: absolute;
@@ -182,4 +219,18 @@ html.lenis, html.lenis body {
   pointer-events: none;
   opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Subtle Shimmer for interactive tactile inspection */
+@keyframes light-sheen {
+  0% {
+    transform: translateX(-120%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(220%) rotate(25deg);
+  }
+}
+
+.animate-sheen {
+  animation: light-sheen 3s infinite ease-in-out;
 }

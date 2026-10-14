@@ -56,14 +56,18 @@ export function StatementSection() {
         }
       );
 
-      if (subtextRef.current) {
-        tl.fromTo(
-          subtextRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 1, ease: "power2.out" },
-          "-=0.6"
-        );
-      }
+      // Typography scrubbed expansion on scroll
+      gsap.to(".statement-title", {
+        scale: 1.04,
+        letterSpacing: "0.04em",
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top center",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
     }, containerRef);
 
     return () => ctx.revert();
@@ -101,7 +105,7 @@ export function StatementSection() {
 
       {/* Center Monumental Editorial Statement */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto my-auto text-center flex flex-col items-center justify-center">
-        <h2 className="font-serif text-[clamp(54px,12.5vw,190px)] leading-[0.88] tracking-[-0.02em] font-light text-warm-ivory uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.3)]">
+        <h2 className="statement-title font-serif text-[clamp(54px,12.5vw,190px)] leading-[0.88] tracking-[-0.02em] font-light text-warm-ivory uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.3)] will-change-transform">
           <span className="block overflow-hidden py-1">
             <span ref={line1Ref} className="block will-change-transform">
               THE SEA

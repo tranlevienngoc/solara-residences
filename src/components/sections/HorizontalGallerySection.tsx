@@ -23,15 +23,16 @@ export function HorizontalGallerySection() {
       const track = trackRef.current;
       if (!section || !track) return;
 
-      const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 120);
+      const getScrollAmount = () => -(track.scrollWidth - window.innerWidth + 140);
 
+      // Horizontal pinning tween
       const tween = gsap.to(track, {
         x: getScrollAmount,
         ease: "none",
         scrollTrigger: {
           trigger: section,
           pin: true,
-          scrub: 1,
+          scrub: 1.1,
           start: "top top",
           end: () => `+=${track.scrollWidth - window.innerWidth}`,
           invalidateOnRefresh: true,
@@ -44,16 +45,26 @@ export function HorizontalGallerySection() {
               Math.floor(self.progress * GALLERY_PANELS.length) + 1
             );
             setCurrentSlide(slideIndex);
+
+            // Awwwards momentum velocity skew effect
+            const velocity = self.getVelocity();
+            const skewAmount = Math.max(-3.5, Math.min(3.5, velocity / 320));
+            gsap.to(track, {
+              skewX: skewAmount,
+              duration: 0.4,
+              ease: "power2.out",
+              overwrite: "auto",
+            });
           },
         },
       });
 
-      // Subtle scale effect on panel images as they scroll
+      // Panel image parallax & un-skew
       const images = track.querySelectorAll(".panel-img");
       images.forEach((img) => {
         gsap.fromTo(
           img,
-          { scale: 1.15 },
+          { scale: 1.18 },
           {
             scale: 1,
             ease: "none",
@@ -96,11 +107,11 @@ export function HorizontalGallerySection() {
         </div>
       </div>
 
-      {/* Horizontal Sliding Track */}
+      {/* Horizontal Sliding Track with Momentum Skew */}
       <div className="w-full overflow-x-auto md:overflow-visible no-scrollbar px-6 md:px-12 lg:px-16 py-6 md:py-0">
         <div
           ref={trackRef}
-          className="flex space-x-8 md:space-x-14 will-change-transform items-center w-max"
+          className="flex space-x-8 md:space-x-14 will-change-transform items-center w-max transform-style-3d"
         >
           {GALLERY_PANELS.map((panel) => (
             <div

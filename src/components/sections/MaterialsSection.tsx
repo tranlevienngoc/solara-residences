@@ -45,7 +45,7 @@ export function MaterialsSection() {
                   key={mat.id}
                   onClick={() => setActiveMaterial(mat)}
                   onMouseEnter={() => setActiveMaterial(mat)}
-                  className={`cursor-pointer p-6 transition-all duration-300 border-b ${
+                  className={`group cursor-pointer p-6 transition-all duration-300 border-b relative overflow-hidden ${
                     isActive
                       ? "border-charcoal bg-charcoal/5 translate-x-2"
                       : "border-charcoal/15 hover:border-charcoal/40"
@@ -62,7 +62,7 @@ export function MaterialsSection() {
 
                   <h3
                     className={`font-serif text-2xl md:text-3xl mt-2 transition-all duration-300 ${
-                      isActive ? "text-charcoal font-normal" : "text-charcoal/60"
+                      isActive ? "text-charcoal font-normal" : "text-charcoal/60 group-hover:text-charcoal"
                     }`}
                   >
                     {mat.name}
@@ -85,10 +85,10 @@ export function MaterialsSection() {
             })}
           </div>
 
-          {/* Right Column: Macro Photography Display */}
+          {/* Right Column: Macro Photography Display with Light Sheen */}
           <div className="lg:col-span-7 flex flex-col space-y-4">
             <div
-              className="relative w-full h-[55vh] md:h-[68vh] min-h-[440px] overflow-hidden bg-charcoal/10 shadow-sm"
+              className="relative w-full h-[55vh] md:h-[68vh] min-h-[440px] overflow-hidden bg-charcoal/10 shadow-lg group"
               data-cursor="view"
             >
               <Image
@@ -97,16 +97,19 @@ export function MaterialsSection() {
                 alt={activeMaterial.name}
                 fill
                 sizes="(max-width: 1024px) 100vw, 55vw"
-                className="object-cover object-center transition-all duration-700 ease-out hover:scale-105"
+                className="object-cover object-center transition-all duration-1000 ease-out group-hover:scale-105"
               />
 
+              {/* Shimmer light sweep across the stone texture */}
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full -skew-x-12 translate-x-[-150%] group-hover:translate-x-[200%] transition-transform duration-1000" />
+
               {/* Provenance Badge */}
-              <div className="absolute top-6 left-6 z-10 bg-warm-ivory/90 backdrop-blur-md px-4 py-2 border border-charcoal/10 text-[10px] font-sans tracking-[0.22em] uppercase text-charcoal">
+              <div className="absolute top-6 left-6 z-10 bg-warm-ivory/90 backdrop-blur-md px-4 py-2 border border-charcoal/10 text-[10px] font-sans tracking-[0.22em] uppercase text-charcoal shadow-sm">
                 MACRO DETAIL · {activeMaterial.name}
               </div>
 
               {/* Texture specs */}
-              <div className="absolute bottom-6 left-6 right-6 z-10 flex justify-between items-center bg-charcoal/80 backdrop-blur-md text-warm-ivory px-5 py-3 text-xs font-sans tracking-[0.2em] uppercase">
+              <div className="absolute bottom-6 left-6 right-6 z-10 flex justify-between items-center bg-charcoal/85 backdrop-blur-md text-warm-ivory px-5 py-3 text-xs font-sans tracking-[0.2em] uppercase shadow-md">
                 <span>ORIGIN: {activeMaterial.origin}</span>
                 <span>{activeMaterial.finish}</span>
               </div>

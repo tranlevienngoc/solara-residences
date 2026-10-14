@@ -1,0 +1,209 @@
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+export function HeroSection() {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLDivElement>(null);
+  const metaRef = useRef<HTMLDivElement>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement>(null);
+  const [activeMood, setActiveMood] = useState<"day" | "dusk">("day");
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    const ctx = gsap.context(() => {
+      // Entrance animation timeline
+      const tl = gsap.timeline({ delay: 0.2 });
+
+      // Image scale down from 1.08 -> 1
+      if (imageContainerRef.current) {
+        tl.fromTo(
+          imageContainerRef.current,
+          { scale: 1.08, opacity: 0.9 },
+          { scale: 1, opacity: 1, duration: 2.2, ease: "power3.out" },
+          0
+        );
+      }
+
+      // Title clip reveal
+      if (titleRef.current) {
+        tl.fromTo(
+          titleRef.current,
+          { yPercent: 40, opacity: 0 },
+          { yPercent: 0, opacity: 1, duration: 1.6, ease: "power4.out" },
+          0.3
+        );
+      }
+
+      // Subtitle & meta fade in
+      if (subtitleRef.current && metaRef.current && scrollIndicatorRef.current) {
+        tl.fromTo(
+          [metaRef.current, subtitleRef.current, scrollIndicatorRef.current],
+          { y: 25, opacity: 0 },
+          { y: 0, opacity: 1, stagger: 0.15, duration: 1.4, ease: "power3.out" },
+          0.6
+        );
+      }
+
+      // Scroll parallax effect
+      if (heroRef.current && imageContainerRef.current) {
+        gsap.to(imageContainerRef.current, {
+          yPercent: 18,
+          scale: 1.04,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+
+        // Parallax for titles (moves faster than background)
+        gsap.to([titleRef.current, subtitleRef.current], {
+          yPercent: -25,
+          opacity: 0.2,
+          ease: "none",
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      }
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const dayImage =
+    "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=85";
+  const duskImage =
+    "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=2400&q=85";
+
+  return (
+    <section
+      id="hero"
+      ref={heroRef}
+      className="relative w-full h-screen min-h-[700px] overflow-hidden flex flex-col justify-between pt-24 pb-12 px-6 md:px-12 lg:px-16 select-none bg-warm-ivory"
+    >
+      {/* Background Architectural Canvas */}
+      <div
+        ref={imageContainerRef}
+        className="absolute inset-0 w-full h-full will-change-transform transition-opacity duration-1000 ease-out"
+        data-cursor="view"
+      >
+        <Image
+          src={activeMood === "day" ? dayImage : duskImage}
+          alt="Solara Beachfront Contemporary Architecture Da Nang"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+
+        {/* Ambient editorial gradient overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-charcoal/40 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-radial-gradient from-transparent via-transparent to-charcoal/40" />
+      </div>
+
+      {/* Top Editorial Bar */}
+      <div
+        ref={metaRef}
+        className="relative z-10 w-full max-w-[1600px] mx-auto flex items-center justify-between text-warm-ivory/90 text-[11px] md:text-xs font-sans tracking-[0.25em] uppercase pt-4"
+      >
+        <div className="flex items-center space-x-3">
+          <span className="w-1.5 h-1.5 rounded-full bg-warm-ivory/80 animate-ping" />
+          <span>DA NANG · VIETNAM</span>
+        </div>
+
+        {/* Ambient Mood Switcher */}
+        <div className="flex items-center space-x-1 p-1 rounded-full bg-charcoal/30 backdrop-blur-md border border-warm-ivory/20">
+          <button
+            onClick={() => setActiveMood("day")}
+            className={`px-3 py-1 rounded-full text-[10px] tracking-[0.2em] transition-all duration-300 ${
+              activeMood === "day"
+                ? "bg-warm-ivory text-charcoal shadow-sm"
+                : "text-warm-ivory/70 hover:text-warm-ivory"
+            }`}
+          >
+            DAY
+          </button>
+          <button
+            onClick={() => setActiveMood("dusk")}
+            className={`px-3 py-1 rounded-full text-[10px] tracking-[0.2em] transition-all duration-300 ${
+              activeMood === "dusk"
+                ? "bg-warm-ivory text-charcoal shadow-sm"
+                : "text-warm-ivory/70 hover:text-warm-ivory"
+            }`}
+          >
+            DUSK
+          </button>
+        </div>
+
+        <div className="hidden sm:block text-right">
+          <span>16°03&apos;24&quot;N 108°14&apos;45&quot;E</span>
+        </div>
+      </div>
+
+      {/* Center Monumental Typography Composition */}
+      <div className="relative z-10 w-full max-w-[1600px] mx-auto my-auto text-center flex flex-col items-center justify-center">
+        <div className="overflow-hidden py-2">
+          <h1
+            ref={titleRef}
+            className="font-serif text-warm-ivory text-[clamp(64px,14vw,200px)] leading-[0.88] tracking-[0.08em] font-light uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.3)] pl-[0.08em]"
+          >
+            SOLARA
+          </h1>
+        </div>
+
+        <div
+          ref={subtitleRef}
+          className="flex flex-col md:flex-row items-center justify-center md:space-x-8 mt-2 md:mt-4 text-warm-ivory/90"
+        >
+          <span className="font-sans text-xs md:text-sm tracking-[0.45em] uppercase font-light">
+            RESIDENCES
+          </span>
+          <span className="hidden md:inline-block w-12 h-[1px] bg-warm-ivory/40" />
+          <p className="font-serif italic text-lg md:text-2xl lg:text-3xl tracking-wide font-light opacity-95 mt-2 md:mt-0">
+            A place shaped by light.
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Editorial Controls & Scroll Indicator */}
+      <div
+        ref={scrollIndicatorRef}
+        className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between text-warm-ivory/80 text-xs font-sans tracking-[0.25em] uppercase pb-2"
+      >
+        <div className="hidden md:block">
+          <span className="text-warm-ivory/60">COLLECTION 2026</span>
+        </div>
+
+        <a
+          href="#story"
+          className="flex flex-col items-center group py-2"
+          aria-label="Scroll to discover Solara story"
+        >
+          <span className="text-[10px] md:text-[11px] tracking-[0.3em] group-hover:text-warm-ivory transition-colors duration-300">
+            SCROLL TO DISCOVER
+          </span>
+          <div className="w-[1px] h-8 bg-warm-ivory/30 mt-3 relative overflow-hidden">
+            <div className="w-full h-1/2 bg-warm-ivory absolute top-0 left-0 animate-bounce" />
+          </div>
+        </a>
+
+        <div className="hidden md:block text-right">
+          <span className="text-warm-ivory/60">LIMITED 28 RESIDENCES</span>
+        </div>
+      </div>
+    </section>
+  );
+}

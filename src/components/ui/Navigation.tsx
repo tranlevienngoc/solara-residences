@@ -5,11 +5,11 @@ import { MagneticButton } from "./MagneticButton";
 import { AmbientSound } from "./AmbientSound";
 
 const NAV_LINKS = [
-  { label: "RESIDENCES", href: "#residences" },
-  { label: "LOCATION", href: "#location" },
-  { label: "LIFESTYLE", href: "#lifestyle" },
-  { label: "ARCHITECTURE", href: "#architecture" },
-  { label: "MATERIALS", href: "#materials" },
+  { label: "DINH THỰ", href: "#residences" },
+  { label: "VỊ TRÍ", href: "#location" },
+  { label: "PHONG CÁCH SỐNG", href: "#lifestyle" },
+  { label: "KIẾN TRÚC", href: "#architecture" },
+  { label: "CHẤT LIỆU", href: "#materials" },
 ];
 
 export function Navigation() {
@@ -23,14 +23,12 @@ export function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Check if user has scrolled away from top
       if (currentScrollY > 60) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
 
-      // Hide navigation on scroll down, show on scroll up
       if (currentScrollY > 200 && currentScrollY > lastScrollY && !isMobileMenuOpen) {
         setIsHidden(true);
       } else {
@@ -44,7 +42,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobileMenuOpen]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -63,7 +60,7 @@ export function Navigation() {
           isHidden ? "-translate-y-full" : "translate-y-0"
         } ${
           isScrolled
-            ? "py-4 bg-[#F2EFE8]/85 backdrop-blur-md border-b border-charcoal/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)]"
+            ? "py-4 bg-[#F2EFE8]/90 backdrop-blur-md border-b border-charcoal/8 shadow-[0_4px_24px_rgba(0,0,0,0.02)]"
             : "py-7 md:py-9 bg-transparent"
         }`}
       >
@@ -71,7 +68,7 @@ export function Navigation() {
           {/* Brand Logo */}
           <a
             href="#hero"
-            aria-label="Solara Residences Da Nang"
+            aria-label="Solara Residences Đà Nẵng"
             className="group flex flex-col items-start select-none"
           >
             <span className="font-serif text-2xl md:text-3xl tracking-[0.22em] font-light text-charcoal uppercase transition-opacity duration-300 group-hover:opacity-70">
@@ -101,7 +98,7 @@ export function Navigation() {
 
             <MagneticButton href="#enquiry" dataCursor="explore">
               <span className="inline-flex items-center justify-center px-6 py-2.5 rounded-full border border-charcoal/30 text-charcoal text-[11px] font-sans tracking-[0.22em] uppercase font-medium hover:bg-charcoal hover:text-warm-ivory transition-all duration-400 ease-out shadow-sm">
-                ENQUIRE
+                LIÊN HỆ
               </span>
             </MagneticButton>
           </div>
@@ -109,7 +106,7 @@ export function Navigation() {
           {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? "Đóng danh mục" : "Mở danh mục"}
             className="lg:hidden p-3 -mr-3 text-charcoal flex flex-col justify-center items-center w-11 h-11 space-y-1.5 focus:outline-none"
           >
             <span
@@ -139,9 +136,9 @@ export function Navigation() {
             : "opacity-0 pointer-events-none -translate-y-4"
         }`}
       >
-        <div className="flex flex-col space-y-7 mt-8">
+        <div className="flex flex-col space-y-6 mt-8">
           <span className="text-[11px] uppercase tracking-[0.25em] text-charcoal/40 font-sans">
-            Menu Navigation
+            Danh Mục Khám Phá
           </span>
           {NAV_LINKS.map((link, idx) => (
             <a
@@ -163,20 +160,20 @@ export function Navigation() {
           <a
             href="#enquiry"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-6 w-full py-4 text-center rounded-full bg-charcoal text-warm-ivory text-xs font-sans tracking-[0.25em] uppercase font-medium"
+            className="mt-6 w-full py-4 text-center rounded-full bg-charcoal text-warm-ivory text-xs font-sans tracking-[0.25em] uppercase font-medium shadow-md"
           >
-            REQUEST PRESENTATION
+            ĐẶT LỊCH HẸN TƯ VẤN
           </a>
         </div>
 
         {/* Mobile menu footer info */}
         <div className="pt-8 border-t border-charcoal/10 flex flex-col space-y-2 text-xs text-charcoal/60 font-sans tracking-wide">
           <div className="flex justify-between">
-            <span>DA NANG, VIETNAM</span>
+            <span>ĐÀ NẴNG, VIỆT NAM</span>
             <span>+84 (0) 236 888 999</span>
           </div>
           <p className="text-[11px] text-charcoal/40 pt-1">
-            © 2026 Solara Residences. All rights reserved.
+            © 2026 Solara Residences. Đã đăng ký bản quyền.
           </p>
         </div>
       </div>

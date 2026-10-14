@@ -3,66 +3,66 @@ import { Residence, Amenity, GalleryPanel, MaterialItem } from "./types";
 export const RESIDENCES_DATA: Residence[] = [
   {
     id: "garden-residence",
-    name: "GARDEN RESIDENCE",
-    category: "Ground Floor Living",
-    bedrooms: "2 Bedrooms",
+    name: "DINH THỰ VƯỜN",
+    category: "Không Gian Xanh Tầng Trệt",
+    bedrooms: "2 Phòng Ngủ",
     area: "110 — 135 m²",
     features: [
-      "Private landscaped garden",
-      "Direct pool & terrace access",
-      "Seamless indoor-outdoor flow",
-      "Double vanity en-suite bathrooms",
+      "Khu vườn nhiệt đới cảnh quan riêng tư",
+      "Lối kết nối trực tiếp hồ bơi & hiên nghỉ",
+      "Không gian mở liền mạch trong nhà và ngoài trời",
+      "Phòng tắm đôi ốp đá cẩm thạch sang trọng",
     ],
     description:
-      "A tranquil sanctuary immersed in indigenous coastal flora, where sliding glass partitions dissolve the threshold between sun-dappled interior salons and your secluded garden courtyard.",
+      "Khoảng lặng an yên hòa mình cùng thiên nhiên miền duyên hải, nơi vách kính trượt xóa nhòa ranh giới giữa phòng khách chan hòa ánh nắng và khuôn viên vườn xanh mát.",
     image:
       "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1800&q=85",
     secondaryImage:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1800&q=85",
-    floorplanTag: "Typology 01 — Garden Level",
-    priceStarting: "From $1.45M USD",
+    floorplanTag: "Phân Hạng 01 — Dinh Thự Tầng Trệt",
+    priceStarting: "Từ 35 Tỷ VNĐ",
   },
   {
     id: "sky-residence",
-    name: "SKY RESIDENCE",
-    category: "Elevated Oceanfront",
-    bedrooms: "3 Bedrooms",
+    name: "DINH THỰ TRÊN KHÔNG",
+    category: "Tầm Nhìn Biển Khoáng Đạt",
+    bedrooms: "3 Phòng Ngủ",
     area: "145 — 180 m²",
     features: [
-      "Panoramic 270° East Sea views",
-      "Expansive 42 m² wrap-around terrace",
-      "Custom Italian travertine island",
-      "Dedicated wine cellar & butler pantry",
+      "Tầm nhìn 270° bao trọn đại dương Mỹ Khê",
+      "Ban công loggia bao quanh rộng 42 m²",
+      "Bàn đảo đá Travertine nhập khẩu từ Ý",
+      "Tủ lưu trữ rượu vang và phòng phụ trợ riêng",
     ],
     description:
-      "Hovering above the coastline, the Sky Residences curate dramatic horizon vistas. Natural ventilation channels maritime breezes through soaring three-meter ceilings lined with natural oak.",
+      "Lơ lửng trên tầng cao với tầm nhìn ngoạn mục hướng thẳng đại dương. Luồng gió biển thanh khiết tự nhiên luân chuyển qua trần nhà cao 3.2m ốp gỗ sồi tự nhiên tinh mỹ.",
     image:
       "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=85",
     secondaryImage:
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",
-    floorplanTag: "Typology 02 — High Floor",
-    priceStarting: "From $2.20M USD",
+    floorplanTag: "Phân Hạng 02 — Căn Hộ Tầng Cao",
+    priceStarting: "Từ 52 Tỷ VNĐ",
   },
   {
     id: "penthouse",
-    name: "PENTHOUSE",
-    category: "The Crowning Collection",
-    bedrooms: "3 — 4 Bedrooms",
+    name: "DINH THỰ ĐỈNH CAO",
+    category: "Bộ Sưu Tập Giới Hạn",
+    bedrooms: "3 — 4 Phòng Ngủ",
     area: "210 — 280 m²",
     features: [
-      "Private rooftop infinity plunge pool",
-      "Outdoor chef pavilion & fire pit",
-      "Master retreat with ocean-facing soaking tub",
-      "Direct private keycard elevator access",
+      "Hồ bơi vô cực riêng biệt trên tầng thượng",
+      "Khu tiệc ngoài trời & lò sưởi ấm cúng",
+      "Phòng ngủ Master với bồn tắm hướng biển",
+      "Thang máy riêng với thẻ từ bảo mật tuyệt đối",
     ],
     description:
-      "The zenith of coastal luxury living in Da Nang. A masterwork of proportion and stillness, featuring a private cantilevered rooftop pool where the azure of the pool fuses seamlessly into the sea.",
+      "Đỉnh cao của phong cách sống ven biển tại Đà Nẵng. Kiệt tác kiến trúc của sự tĩnh lặng và tỉ lệ vàng, sở hữu hồ bơi vô cực vươn ra bầu trời, nơi mặt nước hòa làm một với biển trời bao la.",
     image:
       "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1800&q=85",
     secondaryImage:
       "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1800&q=85",
-    floorplanTag: "Typology 03 — Rooftop Crown",
-    priceStarting: "From $3.85M USD",
+    floorplanTag: "Phân Hạng 03 — Đỉnh Tháp Penthouse",
+    priceStarting: "Từ 88 Tỷ VNĐ",
   },
 ];
 
@@ -70,9 +70,9 @@ export const GALLERY_PANELS: GalleryPanel[] = [
   {
     id: "exterior",
     number: "01",
-    tag: "ARCHITECTURE",
-    title: "EXTERIOR",
-    caption: "Sculptural limestone ribbons engineered to filter morning sunlight and coastal breezes.",
+    tag: "KIẾN TRÚC",
+    title: "NGOẠI THẤT",
+    caption: "Những đường cong đá vôi điêu khắc tinh tế lọc ánh nắng ban mai và đón trọn luồng gió biển duyên hải.",
     image:
       "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[16/10]",
@@ -80,9 +80,9 @@ export const GALLERY_PANELS: GalleryPanel[] = [
   {
     id: "living",
     number: "02",
-    tag: "INTERIORS",
-    title: "LIVING ROOM",
-    caption: "Double-height volume bathed in soft, diffused daylight with custom low-profile furnishings.",
+    tag: "NỘI THẤT",
+    title: "PHÒNG KHÁCH",
+    caption: "Không gian thông tầng ngập tràn ánh sáng dịu nhẹ với bộ sofa êm ái phong cách tối giản sang trọng.",
     image:
       "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[4/3]",
@@ -91,8 +91,8 @@ export const GALLERY_PANELS: GalleryPanel[] = [
     id: "bedroom",
     number: "03",
     tag: "SUITE",
-    title: "BEDROOM",
-    caption: "A restful haven designed for stillness, greeting the dawn over the quiet horizon.",
+    title: "PHÒNG NGỦ MASTER",
+    caption: "Thiên đường nghỉ ngơi nuôi dưỡng sự tĩnh lặng, đón bình minh rực rỡ bên bờ biển mỗi sớm mai.",
     image:
       "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[16/10]",
@@ -100,9 +100,9 @@ export const GALLERY_PANELS: GalleryPanel[] = [
   {
     id: "terrace",
     number: "04",
-    tag: "OUTDOOR",
-    title: "TERRACE",
-    caption: "Sheltered outdoor living deck crafted from aged teak, framing infinite ocean vistas.",
+    tag: "NGOÀI TRỜI",
+    title: "BAN CÔNG LOGGIA",
+    caption: "Hiên nghỉ ngoài trời rộng lớn lót gỗ tếch tự nhiên, mở ra tầm nhìn vô cực hướng biển xanh.",
     image:
       "https://images.unsplash.com/photo-1512915922686-57c11dde9b6b?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[4/3]",
@@ -110,9 +110,9 @@ export const GALLERY_PANELS: GalleryPanel[] = [
   {
     id: "pool",
     number: "05",
-    tag: "WELLNESS",
-    title: "INFINITY POOL",
-    caption: "A 50-meter shoreline pool creating an optical continuum with the waters of Da Nang.",
+    tag: "TIỆN ÍCH",
+    title: "HỒ BƠI VÔ CỰC",
+    caption: "Hồ bơi nước mặn dài 50m sát bờ biển tạo nên sự liền mạch quang học ngoạn mục với sóng nước Đà Nẵng.",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[16/10]",
@@ -120,9 +120,9 @@ export const GALLERY_PANELS: GalleryPanel[] = [
   {
     id: "lobby",
     number: "06",
-    tag: "ARRIVAL",
-    title: "LOBBY",
-    caption: "Monumental stone entry portal accented with water gardens and curated sculptural pieces.",
+    tag: "ĐÓN TIẾP",
+    title: "SẢNH ĐÓN ĐẲNG CẤP",
+    caption: "Cổng vòm đá nguyên khối uy nghi điểm xuyết hồ nước tĩnh lặng và tác phẩm điêu khắc nghệ thuật đương đại.",
     image:
       "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1800&q=85",
     aspect: "aspect-[4/3]",
@@ -133,54 +133,54 @@ export const AMENITIES_DATA: Amenity[] = [
   {
     id: "infinity-pool",
     number: "01",
-    title: "INFINITY POOL",
-    subtitle: "Coastal Horizon",
-    description: "Olympic-length saltwater pool extending into the Pacific horizon with floating cabanas.",
+    title: "HỒ BƠI VÔ CỰC",
+    subtitle: "Chân Trời Sát Biển",
+    description: "Hồ bơi nước mặn chuẩn Olympic vươn dài ra đại dương cùng các chòi cabana riêng tư lãng mạn.",
     image:
       "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=1400&q=85",
   },
   {
     id: "wellness-spa",
     number: "02",
-    title: "WELLNESS SPA",
-    subtitle: "Hydrotherapy & Thermal Suites",
-    description: "Bespoke sound baths, Finnish sauna, cold plunge, and private treatment pavilions.",
+    title: "KHU WELLNESS SPA",
+    subtitle: "Trị Liệu Thủy Sinh & Xông Hơi",
+    description: "Không gian thiền định chuông xoay, phòng xông hơi Phần Lan, bồn ngâm lạnh và khu trị liệu biệt lập.",
     image:
       "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1400&q=85",
   },
   {
     id: "residents-lounge",
     number: "03",
-    title: "RESIDENTS LOUNGE",
-    subtitle: "Curated Social Sanctuary",
-    description: "Sommelier wine library, intimate reading salons, and private dining salon for hosts.",
+    title: "PHÒNG KHÁCH ĐẶC QUYỀN",
+    subtitle: "Không Gian Kết Nối Thượng Lưu",
+    description: "Hầm lưu trữ rượu vang tinh tuyển, phòng đọc sách yên tĩnh và phòng tiệc riêng tư đón tiếp khách quý.",
     image:
       "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1400&q=85",
   },
   {
     id: "fitness-studio",
     number: "04",
-    title: "FITNESS STUDIO",
-    subtitle: "Biophilic Movement",
-    description: "Technogym biomechanical equipment, oceanfront yoga deck, and Pilates reformer studio.",
+    title: "PHÒNG GYM & PILATES",
+    subtitle: "Rèn Luyện Cùng Thiên Nhiên",
+    description: "Trang thiết bị Technogym đỉnh cao, sàn tập yoga hướng biển và phòng tập Pilates reformer chuyên sâu.",
     image:
       "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85",
   },
   {
     id: "tropical-gardens",
     number: "05",
-    title: "TROPICAL GARDENS",
-    subtitle: "Botanical Pathways",
-    description: "Three hectares of preserved coastal dunes, sensory herbal gardens, and koi lagoons.",
+    title: "VƯỜN NHIỆT ĐỚI",
+    subtitle: "Thảm Thực Vật Bản Địa",
+    description: "Ba héc-ta đồi cát và cây cỏ duyên hải được bảo tồn, đan xen vườn thảo mộc và hồ cá koi thanh bình.",
     image:
       "https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=1400&q=85",
   },
   {
     id: "concierge",
     number: "06",
-    title: "CONCIERGE",
-    subtitle: "24/7 Bespoke Living",
-    description: "Private aviation coordination, yacht charters, in-residence chefs, and estate care.",
+    title: "QUẢN GIA RIÊNG 24/7",
+    subtitle: "Đặc Quyền Phong Cách Sống",
+    description: "Hỗ trợ chuyên cơ cá nhân, du thuyền thưởng ngoạn, đầu bếp phục vụ tại gia và quản lý tài sản chuyên nghiệp.",
     image:
       "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=85",
   },
@@ -189,54 +189,54 @@ export const AMENITIES_DATA: Amenity[] = [
 export const MATERIALS_DATA: MaterialItem[] = [
   {
     id: "travertine",
-    name: "Navona Travertine",
-    origin: "Tivoli, Italy",
-    description: "Cross-cut unpolished travertine with open pores, echoing coastal geological strata.",
-    finish: "Honed, porous, matte seal",
+    name: "Đá Navona Travertine",
+    origin: "Tivoli, Nước Ý",
+    description: "Đá trầm tích cắt lớp tự nhiên với bề mặt lỗ xốp mộc mạc, mô phỏng các tầng địa chất ven biển ngàn năm.",
+    finish: "Mài mờ, giữ nguyên vân rỗ tự nhiên",
     image:
       "https://images.unsplash.com/photo-1598880940371-c756e015faf1?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "timber",
-    name: "Reclaimed Teak",
-    origin: "Central Highlands, Vietnam",
-    description: "Sustainably reclaimed tropical timber aged by maritime elements for natural silvery resilience.",
-    finish: "Brushed grain, natural oil",
+    name: "Gỗ Tếch Tái Sinh",
+    origin: "Tây Nguyên, Việt Nam",
+    description: "Gỗ nhiệt đới khai thác bền vững, tôi luyện qua nắng gió biển khơi để hình thành sắc bạc quý phái.",
+    finish: "Chải nổi thớ vân, phủ dầu thực vật",
     image:
       "https://images.unsplash.com/photo-1546484396-fb3fc6f95f98?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "natural-stone",
-    name: "Quang Nam Limestone",
-    origin: "Central Coast, Vietnam",
-    description: "Hand-chiseled monolithic blocks that age with noble dignity under sea mist and sun.",
-    finish: "Split-face & fluted reliefs",
+    name: "Đá Vôi Quảng Nam",
+    origin: "Miền Trung, Việt Nam",
+    description: "Từng khối đá nguyên khối được đục đẽo thủ công, càng nhuốm màu thời gian càng thêm đĩnh đạc và uy nghiêm.",
+    finish: "Chẻ thô tự nhiên & phay rãnh nghệ thuật",
     image:
       "https://images.unsplash.com/photo-1590402494682-cd3fb53b1f70?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "linen",
-    name: "Raw Organic Linen",
-    origin: "Normandy & Hue Looms",
-    description: "Heavyweight tactile weave softening architectural geometries and filtering sunlight.",
-    finish: "Pre-washed, unbleached",
+    name: "Vải Linen Hữu Cơ Thô",
+    origin: "Làng Dệt Truyền Thống Huế",
+    description: "Dệt thủ công sợi lanh tự nhiên dày dặn, làm dịu đi các góc cạnh bê tông và đón nhận ánh nắng dịu dàng.",
+    finish: "Giặt sấy tự nhiên, không tẩy trắng hóa học",
     image:
       "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=1200&q=85",
   },
   {
     id: "brushed-metal",
-    name: "Muted Bronze",
-    origin: "Handcrafted Metallics",
-    description: "Low-sheen patinated bronze accents resistant to salinity, developing a bespoke patina over decades.",
-    finish: "Hand-rubbed antique bronze",
+    name: "Đồng Thau Chải Mờ",
+    origin: "Nghệ Thuật Kim Khí Thủ Công",
+    description: "Đồng thau chống ăn mòn muối biển cao cấp, tự phát triển lớp patina cổ điển tuyệt đẹp theo năm tháng.",
+    finish: "Chải sọc mờ thủ công phủ màu trầm",
     image:
       "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=1200&q=85",
   },
 ];
 
 export const LOCATION_DISTANCES = [
-  { value: 5, unit: "MIN", label: "MY KHE BEACH", desc: "Direct private dune boardwalk" },
-  { value: 10, unit: "MIN", label: "CITY CENTER", desc: "Han River promenade & galleries" },
-  { value: 15, unit: "MIN", label: "INT'L AIRPORT", desc: "Private VIP terminal transfers" },
-  { value: 20, unit: "MIN", label: "CHAMPIONSHIP GOLF", desc: "BRG Da Nang & Montgomerie Links" },
+  { value: 5, unit: "PHÚT", label: "BÃI BIỂN MỸ KHÊ", desc: "Lối đi bộ riêng qua đồi cát ra thẳng biển" },
+  { value: 10, unit: "PHÚT", label: "TRUNG TÂM THÀNH PHỐ", desc: "Bến du thuyền sông Hàn & các bảo tàng" },
+  { value: 15, unit: "PHÚT", label: "SÂN BAY QUỐC TẾ", desc: "Dịch vụ đưa đón sảnh VIP chuyên biệt" },
+  { value: 20, unit: "PHÚT", label: "SÂN GOLF QUỐC TẾ", desc: "BRG Danang Golf Resort & Montgomerie Links" },
 ];

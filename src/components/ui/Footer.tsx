@@ -19,57 +19,57 @@ export function Footer() {
               SOLARA
             </h3>
             <span className="text-xs font-sans tracking-[0.35em] text-charcoal/60 uppercase block">
-              RESIDENCES · DA NANG, VIETNAM
+              RESIDENCES · ĐÀ NẴNG, VIỆT NAM
             </span>
             <p className="font-serif italic text-base md:text-lg text-charcoal/70 max-w-md pt-2">
-              A collection of 28 contemporary beachfront residences shaped by light, maritime horizons and timeless architectural discipline.
+              Bộ sưu tập 28 dinh thự biển độc bản được định hình bởi ánh sáng, đường chân trời duyên hải và kỷ luật kiến trúc trường tồn theo năm tháng.
             </p>
           </div>
 
           {/* Quick Nav Links */}
           <div className="lg:col-span-2 space-y-4">
             <span className="text-[11px] font-sans tracking-[0.25em] text-charcoal/40 uppercase block">
-              NAVIGATION
+              DANH MỤC
             </span>
             <ul className="space-y-2.5 text-xs font-sans tracking-[0.2em] uppercase text-charcoal/80">
               <li>
                 <a href="#hero" className="hover:text-charcoal hover-line">
-                  Overview
+                  Tổng Quan
                 </a>
               </li>
               <li>
                 <a href="#story" className="hover:text-charcoal hover-line">
-                  The Story
+                  Câu Chuyện
                 </a>
               </li>
               <li>
                 <a href="#location" className="hover:text-charcoal hover-line">
-                  Location
+                  Vị Trí
                 </a>
               </li>
               <li>
                 <a href="#residences" className="hover:text-charcoal hover-line">
-                  Residences
+                  Dinh Thự
                 </a>
               </li>
               <li>
                 <a href="#lifestyle" className="hover:text-charcoal hover-line">
-                  Lifestyle
+                  Phong Cách Sống
                 </a>
               </li>
               <li>
                 <a href="#architecture" className="hover:text-charcoal hover-line">
-                  Architecture
+                  Kiến Trúc
                 </a>
               </li>
               <li>
                 <a href="#materials" className="hover:text-charcoal hover-line">
-                  Materials
+                  Chất Liệu
                 </a>
               </li>
               <li>
                 <a href="#enquiry" className="hover:text-charcoal hover-line">
-                  Contact
+                  Liên Hệ
                 </a>
               </li>
             </ul>
@@ -78,7 +78,7 @@ export function Footer() {
           {/* Social & Press */}
           <div className="lg:col-span-2 space-y-4">
             <span className="text-[11px] font-sans tracking-[0.25em] text-charcoal/40 uppercase block">
-              SOCIAL &amp; ARCHIVE
+              MẠNG XÃ HỘI &amp; TƯ LIỆU
             </span>
             <ul className="space-y-2.5 text-xs font-sans tracking-[0.2em] uppercase text-charcoal/80">
               <li>
@@ -118,7 +118,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-charcoal hover-line"
                 >
-                  Architectural Film
+                  Phim Kiến Trúc
                 </a>
               </li>
             </ul>
@@ -129,12 +129,12 @@ export function Footer() {
             <MagneticButton onClick={scrollToTop} dataCursor="explore">
               <button
                 type="button"
-                aria-label="Scroll back to top"
+                aria-label="Cuộn lên đầu trang"
                 className="w-16 h-16 rounded-full border border-charcoal/20 flex flex-col items-center justify-center text-charcoal hover:bg-charcoal hover:text-warm-ivory transition-all duration-400"
               >
                 <span className="text-sm">↑</span>
                 <span className="text-[8px] font-sans tracking-[0.2em] uppercase mt-0.5">
-                  TOP
+                  LÊN ĐẦU
                 </span>
               </button>
             </MagneticButton>
@@ -143,18 +143,18 @@ export function Footer() {
 
         {/* Bottom Colophon & Copyright */}
         <div className="pt-10 flex flex-col sm:flex-row items-center justify-between text-[11px] font-sans tracking-[0.2em] text-charcoal/50 uppercase gap-4">
-          <p>© 2026 SOLARA RESIDENCES. ALL RIGHTS RESERVED.</p>
+          <p>© 2026 SOLARA RESIDENCES. ĐÃ ĐĂNG KÝ BẢN QUYỀN.</p>
           <div className="flex items-center space-x-6">
             <a href="#privacy" className="hover:text-charcoal">
-              PRIVACY POLICY
+              CHÍNH SÁCH BẢO MẬT
             </a>
             <span>·</span>
             <a href="#terms" className="hover:text-charcoal">
-              LEGAL TERMS
+              ĐIỀU KHOẢN PHÁP LÝ
             </a>
             <span>·</span>
             <a href="#disclaimer" className="hover:text-charcoal">
-              DISCLAIMER
+              TƯ LIỆU THIẾT KẾ
             </a>
           </div>
         </div>

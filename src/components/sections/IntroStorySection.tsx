@@ -95,7 +95,7 @@ export function IntroStorySection() {
         {/* Section Index Label */}
         <div className="flex items-center space-x-4 mb-10 md:mb-16">
           <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-            01 — THE STORY
+            01 — CÂU CHUYỆN
           </span>
           <span className="w-16 h-[1px] bg-charcoal/20" />
         </div>
@@ -106,7 +106,7 @@ export function IntroStorySection() {
             <h2 className="font-serif text-[clamp(42px,6.8vw,110px)] font-light leading-[0.96] tracking-[-0.02em] text-charcoal">
               <span className="block overflow-hidden py-1">
                 <span ref={headingLine1Ref} className="block will-change-transform">
-                  Where architecture
+                  Nơi kiến trúc
                 </span>
               </span>
               <span className="block overflow-hidden py-1">
@@ -114,7 +114,7 @@ export function IntroStorySection() {
                   ref={headingLine2Ref}
                   className="block italic font-light will-change-transform text-charcoal/90"
                 >
-                  meets the horizon.
+                  giao hòa cùng chân trời.
                 </span>
               </span>
             </h2>
@@ -125,14 +125,12 @@ export function IntroStorySection() {
               ref={textRef}
               className="font-serif text-lg md:text-2xl text-charcoal/80 font-light leading-[1.6] tracking-wide"
             >
-              Solara Residences is conceived as a quiet retreat between city and sea — a
-              collection of contemporary homes shaped by natural light, tropical
-              landscapes and the rhythm of coastal living.
+              Solara Residences được khởi tạo như một chốn tĩnh dưỡng yên bình giữa nhịp sống đô thị và biển xanh bao la — một bộ sưu tập không gian sống đương đại được định hình bởi ánh sáng tự nhiên, thảm thực vật nhiệt đới và nhịp điệu êm đềm của đại dương.
             </p>
 
             <div className="mt-8 pt-8 border-t border-charcoal/15 flex items-center justify-between text-[11px] font-sans tracking-[0.25em] text-charcoal/50 uppercase">
-              <span>ARCHITECTURAL ETHOS</span>
-              <span>DA NANG COASTLINE</span>
+              <span>TRIẾT LÝ KIẾN TRÚC</span>
+              <span>BỜ BIỂN ĐÀ NẴNG</span>
             </div>
           </div>
         </div>
@@ -147,7 +145,7 @@ export function IntroStorySection() {
             <div ref={imageInnerRef} className="absolute -inset-[10%] w-[120%] h-[120%]">
               <Image
                 src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2400&q=85"
-                alt="Solara architecture blending with tropical beachfront flora"
+                alt="Kiến trúc Solara giao hòa cùng thiên nhiên duyên hải Đà Nẵng"
                 fill
                 sizes="(max-width: 1200px) 100vw, 1600px"
                 className="object-cover object-center"
@@ -156,16 +154,16 @@ export function IntroStorySection() {
 
             {/* Subtle corner badge */}
             <div className="absolute bottom-6 right-6 z-10 hidden sm:block bg-[#F2EFE8]/90 backdrop-blur-md px-4 py-2 text-[10px] tracking-[0.2em] font-sans uppercase text-charcoal border border-charcoal/10">
-              FIG 01.1 — DIALOGUE WITH LIGHT
+              HÌNH 01.1 — ĐỐI THOẠI CÙNG ÁNH SÁNG
             </div>
           </div>
 
           <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-between text-xs text-charcoal/60 font-sans tracking-wide">
             <p className="italic font-serif text-sm">
-              &ldquo;Light is not merely illumination; it is the fundamental building material of Solara.&rdquo;
+              &ldquo;Ánh sáng không đơn thuần là sự chiếu rọi; đó là chất liệu kiến trúc cốt lõi của Solara.&rdquo;
             </p>
             <span className="text-[11px] tracking-[0.2em] uppercase font-mono mt-1 sm:mt-0">
-              ORIENTATION: 122° EAST / MORNING SUN
+              HƯỚNG ĐÓN NẮNG: 122° ĐÔNG / BÌNH MINH VEN BIỂN
             </span>
           </div>
         </div>

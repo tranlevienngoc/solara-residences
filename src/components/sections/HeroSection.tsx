@@ -149,7 +149,7 @@ export function HeroSection() {
       >
         <div className="flex items-center space-x-3">
           <span className="w-1.5 h-1.5 rounded-full bg-warm-ivory/80 animate-ping" />
-          <span>DA NANG · VIETNAM</span>
+          <span>ĐÀ NẴNG · VIỆT NAM</span>
         </div>
 
         {/* Ambient Mood Switcher */}
@@ -162,7 +162,7 @@ export function HeroSection() {
                 : "text-warm-ivory/70 hover:text-warm-ivory"
             }`}
           >
-            DAY
+            BAN NGÀY
           </button>
           <button
             onClick={() => setActiveMood("dusk")}
@@ -172,12 +172,12 @@ export function HeroSection() {
                 : "text-warm-ivory/70 hover:text-warm-ivory"
             }`}
           >
-            DUSK
+            HOÀNG HÔN
           </button>
         </div>
 
         <div className="hidden sm:block text-right">
-          <span>16°03&apos;24&quot;N 108°14&apos;45&quot;E</span>
+          <span>16°03&apos;24&quot;B 108°14&apos;45&quot;Đ</span>
         </div>
       </div>
 
@@ -207,7 +207,7 @@ export function HeroSection() {
           </span>
           <span className="hidden md:inline-block w-12 h-[1px] bg-warm-ivory/40" />
           <p className="font-serif italic text-lg md:text-2xl lg:text-3xl tracking-wide font-light opacity-95 mt-2 md:mt-0">
-            A place shaped by light.
+            Nơi ánh sáng định hình không gian.
           </p>
         </div>
       </div>
@@ -218,16 +218,16 @@ export function HeroSection() {
         className="relative z-10 w-full max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between text-warm-ivory/80 text-xs font-sans tracking-[0.25em] uppercase pb-2"
       >
         <div className="hidden md:block">
-          <span className="text-warm-ivory/60">COLLECTION 2026</span>
+          <span className="text-warm-ivory/60">BỘ SƯU TẬP 2026</span>
         </div>
 
         <a
           href="#story"
           className="flex flex-col items-center group py-2"
-          aria-label="Scroll to discover Solara story"
+          aria-label="Cuộn để khám phá câu chuyện Solara"
         >
           <span className="text-[10px] md:text-[11px] tracking-[0.3em] group-hover:text-warm-ivory transition-colors duration-300">
-            SCROLL TO DISCOVER
+            CUỘN ĐỂ KHÁM PHÁ
           </span>
           <div className="w-[1px] h-8 bg-warm-ivory/30 mt-3 relative overflow-hidden">
             <div className="w-full h-1/2 bg-warm-ivory absolute top-0 left-0 animate-bounce" />
@@ -235,7 +235,7 @@ export function HeroSection() {
         </a>
 
         <div className="hidden md:block text-right">
-          <span className="text-warm-ivory/60">LIMITED 28 RESIDENCES</span>
+          <span className="text-warm-ivory/60">GIỚI HẠN 28 DINH THỰ</span>
         </div>
       </div>
     </section>

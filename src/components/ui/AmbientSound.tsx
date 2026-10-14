@@ -98,7 +98,7 @@ export function AmbientSound() {
   return (
     <button
       onClick={toggleSound}
-      aria-label={isPlaying ? "Mute ambient ocean audio" : "Play ambient ocean audio"}
+      aria-label={isPlaying ? "Tắt âm thanh sóng biển tĩnh dưỡng" : "Bật âm thanh sóng biển tĩnh dưỡng"}
       className="hidden sm:flex items-center space-x-2 text-[10px] font-sans tracking-[0.22em] uppercase text-charcoal/60 hover:text-charcoal transition-colors px-3 py-1.5 rounded-full border border-charcoal/20 bg-charcoal/5 backdrop-blur-sm"
     >
       <div className="flex items-center space-x-0.5 h-3">
@@ -120,7 +120,7 @@ export function AmbientSound() {
           style={{ animationDelay: "300ms" }}
         />
       </div>
-      <span>{isPlaying ? "SOUND ON" : "SOUND OFF"}</span>
+      <span>{isPlaying ? "ÂM THANH: BẬT" : "ÂM THANH: TẮT"}</span>
     </button>
   );
 }

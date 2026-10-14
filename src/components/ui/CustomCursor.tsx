@@ -38,13 +38,13 @@ export function CustomCursor() {
       if (cursorTarget) {
         const type = cursorTarget.getAttribute("data-cursor");
         if (type === "view") {
-          setCursorText("VIEW");
+          setCursorText("XEM");
           setIsHovered(true);
         } else if (type === "drag") {
-          setCursorText("DRAG");
+          setCursorText("KÉO");
           setIsHovered(true);
         } else if (type === "explore") {
-          setCursorText("EXPLORE");
+          setCursorText("KHÁM PHÁ");
           setIsHovered(true);
         } else {
           setCursorText("");
@@ -109,7 +109,7 @@ export function CustomCursor() {
         <div className="w-1.5 h-1.5 rounded-full bg-charcoal" />
       </div>
 
-      {/* 2. Fluid Trailing Ring / Bubble with Micro-Interactions */}
+      {/* 2. Fluid Trailing Ring with Vietnamese Action Labels */}
       <div
         ref={ringRef}
         className={`fixed top-0 left-0 pointer-events-none z-[9998] -translate-x-1/2 -translate-y-1/2 transition-opacity duration-300 ${
@@ -121,14 +121,14 @@ export function CustomCursor() {
         <div
           className={`rounded-full flex items-center justify-center transition-all duration-300 ease-out ${
             isTextMode
-              ? "w-20 h-20 bg-warm-ivory text-charcoal shadow-2xl border border-charcoal/15 backdrop-blur-md scale-100"
+              ? "w-24 h-24 bg-warm-ivory text-charcoal shadow-2xl border border-charcoal/15 backdrop-blur-md scale-100"
               : isButtonMode
               ? "w-11 h-11 border border-charcoal/35 bg-charcoal/5 backdrop-blur-[1px] scale-110"
               : "w-8 h-8 border border-charcoal/25 bg-transparent scale-90"
           }`}
         >
           {isTextMode && (
-            <span className="text-[10px] font-sans font-semibold tracking-[0.25em] select-none uppercase pl-[0.25em] text-charcoal animate-pulse">
+            <span className="text-[10px] font-sans font-semibold tracking-[0.2em] select-none uppercase text-charcoal px-2 text-center">
               {cursorText}
             </span>
           )}

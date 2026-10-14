@@ -8,7 +8,7 @@ export function EnquirySection() {
     name: "",
     email: "",
     phone: "",
-    residenceType: "Sky Residence",
+    residenceType: "Dinh Thự Trên Không",
     message: "",
   });
 
@@ -17,13 +17,13 @@ export function EnquirySection() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Please provide your full name";
+    if (!formData.name.trim()) newErrors.name = "Vui lòng cung cấp họ và tên của Quý khách";
     if (!formData.email.trim()) {
-      newErrors.email = "Please provide your email address";
+      newErrors.email = "Vui lòng cung cấp địa chỉ email";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please provide a valid email address";
+      newErrors.email = "Địa chỉ email không hợp lệ";
     }
-    if (!formData.phone.trim()) newErrors.phone = "Please provide your telephone number";
+    if (!formData.phone.trim()) newErrors.phone = "Vui lòng cung cấp số điện thoại hoặc Zalo liên hệ";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -53,35 +53,35 @@ export function EnquirySection() {
             <div>
               <div className="flex items-center space-x-4 mb-6">
                 <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-                  05 — PRIVATE ADVISORY
+                  06 — TƯ VẤN ĐẶC QUYỀN
                 </span>
                 <span className="w-16 h-[1px] bg-charcoal/20" />
               </div>
 
               <h2 className="font-serif text-[clamp(44px,7vw,110px)] leading-[0.95] font-light text-charcoal">
-                Find your
-                <span className="block italic text-charcoal/85">place at Solara.</span>
+                Tìm kiếm tổ ấm
+                <span className="block italic text-charcoal/85">của bạn tại Solara.</span>
               </h2>
 
               <p className="mt-8 font-serif italic text-lg md:text-2xl text-charcoal/75 leading-relaxed max-w-md">
-                We invite discerning collectors and prospective residents to request a private architectural presentation and floorplan dossier.
+                Chúng tôi trân trọng kính mời quý chủ nhân tương lai đăng ký nhận trọn bộ hồ sơ kiến trúc và sắp xếp buổi thưởng lãm riêng tư.
               </p>
             </div>
 
             <div className="space-y-6 pt-8 border-t border-charcoal/15 text-xs font-sans tracking-wide text-charcoal/70">
               <div>
                 <span className="text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-1">
-                  SALES GALLERY &amp; RESIDENCE LOUNGE
+                  NHÀ MẪU &amp; KHÔNG GIAN ĐÓN TIẾP
                 </span>
                 <p className="text-sm font-light text-charcoal">
-                  Vo Nguyen Giap Coastal Promenade, My Khe Beach, Da Nang, Vietnam
+                  Đại Lộ Võ Nguyên Giáp, Bãi Biển Mỹ Khê, Đà Nẵng, Việt Nam
                 </p>
               </div>
 
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <span className="text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-1">
-                    DIRECT PRIVATE LINE
+                    ĐƯỜNG DÂY NÓNG RIÊNG TƯ
                   </span>
                   <a
                     href="tel:+84236888999"
@@ -92,7 +92,7 @@ export function EnquirySection() {
                 </div>
                 <div>
                   <span className="text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-1">
-                    EMAIL ADVISORY
+                    EMAIL BAN CỐ VẤN
                   </span>
                   <a
                     href="mailto:advisory@solara-residences.com"
@@ -113,10 +113,10 @@ export function EnquirySection() {
                   ✓
                 </div>
                 <h3 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
-                  Thank you.
+                  Xin Chân Thành Cảm Ơn Quý Khách.
                 </h3>
                 <p className="font-serif italic text-lg md:text-2xl text-charcoal/75 max-w-md mx-auto leading-relaxed">
-                  Our private sales team will contact you shortly to coordinate your bespoke presentation.
+                  Đội ngũ cố vấn cấp cao của Solara Residences sẽ liên hệ trong thời gian sớm nhất để chuẩn bị buổi tiếp đón riêng tư.
                 </p>
                 <div className="pt-6">
                   <button
@@ -126,13 +126,13 @@ export function EnquirySection() {
                         name: "",
                         email: "",
                         phone: "",
-                        residenceType: "Sky Residence",
+                        residenceType: "Dinh Thự Trên Không",
                         message: "",
                       });
                     }}
                     className="text-xs font-sans tracking-[0.25em] uppercase text-charcoal/60 hover:text-charcoal underline"
                   >
-                    SUBMIT ANOTHER ENQUIRY
+                    GỬI YÊU CẦU TƯ VẤN KHÁC
                   </button>
                 </div>
               </div>
@@ -144,7 +144,7 @@ export function EnquirySection() {
                     htmlFor="name"
                     className="block text-[11px] font-sans tracking-[0.25em] uppercase text-charcoal/50"
                   >
-                    Full Name *
+                    Họ Và Tên Quý Khách *
                   </label>
                   <input
                     id="name"
@@ -154,7 +154,7 @@ export function EnquirySection() {
                       setFormData({ ...formData, name: e.target.value });
                       if (errors.name) setErrors({ ...errors, name: "" });
                     }}
-                    placeholder="Lord / Lady / Dr. / Mr. / Ms."
+                    placeholder="Ông / Bà / TS. / KTS."
                     className="editorial-input"
                   />
                   {errors.name && (
@@ -170,7 +170,7 @@ export function EnquirySection() {
                     htmlFor="email"
                     className="block text-[11px] font-sans tracking-[0.25em] uppercase text-charcoal/50"
                   >
-                    Email Address *
+                    Địa Chỉ Email *
                   </label>
                   <input
                     id="email"
@@ -180,7 +180,7 @@ export function EnquirySection() {
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: "" });
                     }}
-                    placeholder="name@domain.com"
+                    placeholder="ten@doanhnghiep.com"
                     className="editorial-input"
                   />
                   {errors.email && (
@@ -196,7 +196,7 @@ export function EnquirySection() {
                     htmlFor="phone"
                     className="block text-[11px] font-sans tracking-[0.25em] uppercase text-charcoal/50"
                   >
-                    Phone / WhatsApp *
+                    Số Điện Thoại / Zalo *
                   </label>
                   <input
                     id="phone"
@@ -206,7 +206,7 @@ export function EnquirySection() {
                       setFormData({ ...formData, phone: e.target.value });
                       if (errors.phone) setErrors({ ...errors, phone: "" });
                     }}
-                    placeholder="+84 / +1 / +44 ..."
+                    placeholder="+84 90..."
                     className="editorial-input"
                   />
                   {errors.phone && (
@@ -222,7 +222,7 @@ export function EnquirySection() {
                     htmlFor="residenceType"
                     className="block text-[11px] font-sans tracking-[0.25em] uppercase text-charcoal/50"
                   >
-                    Residence Preference
+                    Loại Hình Dinh Thự Quan Tâm
                   </label>
                   <select
                     id="residenceType"
@@ -232,10 +232,10 @@ export function EnquirySection() {
                     }
                     className="editorial-input bg-transparent cursor-pointer"
                   >
-                    <option value="Garden Residence">Garden Residence (2 BR · 110–135 m²)</option>
-                    <option value="Sky Residence">Sky Residence (3 BR · 145–180 m²)</option>
-                    <option value="Penthouse">Penthouse (3–4 BR · 210–280 m²)</option>
-                    <option value="Full Floor Collection">Full Floor Private Collection</option>
+                    <option value="Dinh Thự Vườn">Dinh Thự Vườn (2 PN · 110–135 m²)</option>
+                    <option value="Dinh Thự Trên Không">Dinh Thự Trên Không (3 PN · 145–180 m²)</option>
+                    <option value="Dinh Thự Đỉnh Cao Penthouse">Dinh Thự Đỉnh Cao Penthouse (3–4 PN · 210–280 m²)</option>
+                    <option value="Bộ Sưu Tập Toàn Tầng">Bộ Sưu Tập Toàn Tầng Biệt Lập</option>
                   </select>
                 </div>
 
@@ -245,7 +245,7 @@ export function EnquirySection() {
                     htmlFor="message"
                     className="block text-[11px] font-sans tracking-[0.25em] uppercase text-charcoal/50"
                   >
-                    Bespoke Inquiries / Notes
+                    Ghi Chú / Khung Giờ Tiếp Đón Thuận Tiện
                   </label>
                   <textarea
                     id="message"
@@ -254,7 +254,7 @@ export function EnquirySection() {
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
-                    placeholder="Preferred appointment schedule, timeline, or special requirements..."
+                    placeholder="Khung giờ thuận tiện để đón tiếp, yêu cầu hồ sơ tài liệu hoặc lưu ý riêng..."
                     className="editorial-input resize-none"
                   />
                 </div>
@@ -268,14 +268,14 @@ export function EnquirySection() {
                       className="w-full sm:w-auto px-10 py-4 rounded-full bg-charcoal text-warm-ivory text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-charcoal/85 transition-all duration-300 disabled:opacity-50"
                     >
                       {status === "loading"
-                        ? "COORDINATING PRESENTATION..."
-                        : "REQUEST PRIVATE PRESENTATION →"}
+                        ? "ĐANG TIẾP NHẬN YÊU CẦU..."
+                        : "ĐĂNG KÝ TRẢI NGHIỆM ĐẶC QUYỀN →"}
                     </button>
                   </MagneticButton>
                 </div>
 
                 <p className="text-[10px] text-charcoal/50 font-sans tracking-wide pt-2">
-                  All correspondence remains strictly confidential under private estate nondisclosure.
+                  Mọi thông tin liên hệ được cam kết bảo mật tuyệt đối theo quy chuẩn dịch vụ tư nhân cao cấp.
                 </p>
               </form>
             )}

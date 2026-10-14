@@ -9,26 +9,26 @@ import { MagneticButton } from "../ui/MagneticButton";
 interface Hotspot {
   id: string;
   name: string;
-  x: number; // percentage
-  y: number; // percentage
+  x: number;
+  y: number;
   detail: string;
 }
 
 const RESIDENCE_HOTSPOTS: Record<string, Hotspot[]> = {
   "garden-residence": [
-    { id: "garden", name: "Private Zen Courtyard", x: 28, y: 70, detail: "45 m² landscaped dune garden with native flora" },
-    { id: "salon", name: "Living Salon", x: 50, y: 45, detail: "Double-aspect open plan with flush floor tracks" },
-    { id: "pool-link", name: "Direct Pool Access", x: 75, y: 30, detail: "Subterranean stone stepping stones to main pool" },
+    { id: "garden", name: "Khu Vườn Thiền Riêng Tư", x: 28, y: 70, detail: "45 m² vườn cảnh quan duyên hải với cây cối nhiệt đới bản địa" },
+    { id: "salon", name: "Phòng Khách Liên Thông", x: 50, y: 45, detail: "Không gian mở đa hướng với hệ ray trượt kính âm sàn tinh tế" },
+    { id: "pool-link", name: "Lối Kết Nối Hồ Bơi", x: 75, y: 30, detail: "Phiến đá tự nhiên dẫn lối trực tiếp ra làn nước hồ bơi trung tâm" },
   ],
   "sky-residence": [
-    { id: "terrace", name: "Panoramic Ocean Loggia", x: 35, y: 30, detail: "42 m² covered terrace with frameless glass rail" },
-    { id: "kitchen", name: "Travertine Chef Island", x: 62, y: 55, detail: "Monolithic Italian travertine slab with concealed induction" },
-    { id: "master", name: "Master Horizon Suite", x: 78, y: 40, detail: "Acoustic insulated retreat with ocean sunrise view" },
+    { id: "terrace", name: "Ban Công Loggia Hướng Biển", x: 35, y: 30, detail: "Ban công 42 m² có mái che với lan can kính cường lực vô cực" },
+    { id: "kitchen", name: "Đảo Bếp Đá Travertine", x: 62, y: 55, detail: "Khối đá Travertine Ý nguyên khối tích hợp bếp từ âm cao cấp" },
+    { id: "master", name: "Phòng Ngủ Master Hướng Biển", x: 78, y: 40, detail: "Không gian tĩnh dưỡng cách âm tuyệt đối đón trọn bình minh" },
   ],
   penthouse: [
-    { id: "rooftop-pool", name: "Cantilevered Infinity Plunge", x: 40, y: 25, detail: "Heated private 10m pool extending over the facade" },
-    { id: "sky-lounge", name: "Rooftop Stargazing Pavilion", x: 70, y: 35, detail: "Outdoor fireplace and sunken lounge banquette" },
-    { id: "lift", name: "Private Keycard Elevator", x: 55, y: 75, detail: "Direct in-residence arrival from underground parking" },
+    { id: "rooftop-pool", name: "Hồ Bơi Vô Cực Tầng Thượng", x: 40, y: 25, detail: "Hồ bơi nước ấm 10m vươn ra khỏi ban công hướng đại dương" },
+    { id: "sky-lounge", name: "Khu Ngắm Sao & Tiệc Ngoài Trời", x: 70, y: 35, detail: "Lò sưởi ấm cúng và khu sofa chìm thư giãn dưới bầu trời đêm" },
+    { id: "lift", name: "Thang Máy Thẻ Từ Riêng Biệt", x: 55, y: 75, detail: "Lối lên sảnh căn hộ trực tiếp từ khu vực đỗ xe chuyên biệt" },
   ],
 };
 
@@ -49,18 +49,18 @@ export function ResidenceSelectorSection() {
         {/* Section Header */}
         <div className="flex items-center space-x-4 mb-6">
           <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-            02 — RESIDENCES
+            03 — BỘ SƯU TẬP DINH THỰ
           </span>
           <span className="w-16 h-[1px] bg-charcoal/20" />
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 md:mb-24">
           <h2 className="font-serif text-[clamp(44px,7vw,112px)] leading-[0.95] font-light text-charcoal">
-            Spaces
-            <span className="block italic text-charcoal/85">to live slowly.</span>
+            Không gian
+            <span className="block italic text-charcoal/85">để sống chậm.</span>
           </h2>
           <p className="mt-6 lg:mt-0 font-serif italic text-lg md:text-2xl text-charcoal/70 max-w-md">
-            Three distinct architectural typologies tailored for solitude, horizon contemplation, and effortless coastal entertaining.
+            Ba phân hạng kiến trúc độc bản được đo ni đóng giày cho sự tĩnh lặng, ngắm nhìn chân trời và trải nghiệm sống đẳng cấp bên bờ biển.
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export function ResidenceSelectorSection() {
             <div className="pt-6 p-6 rounded-none bg-stone/10 border border-charcoal/10 flex flex-col space-y-6">
               <div>
                 <span className="text-[10px] font-sans tracking-[0.25em] uppercase text-charcoal/50 block mb-2">
-                  ARCHITECTURAL FEATURES
+                  ĐẶC QUYỀN THIẾT KẾ
                 </span>
                 <ul className="space-y-2">
                   {selectedResidence.features.map((feat) => (
@@ -152,7 +152,7 @@ export function ResidenceSelectorSection() {
               <div className="pt-4 border-t border-charcoal/10 flex items-center justify-between">
                 <div>
                   <span className="text-[10px] uppercase font-sans tracking-[0.2em] text-charcoal/50 block">
-                    INVESTMENT
+                    MỨC ĐẦU TƯ TỪ
                   </span>
                   <span className="font-serif text-lg font-normal text-charcoal">
                     {selectedResidence.priceStarting}
@@ -164,7 +164,7 @@ export function ResidenceSelectorSection() {
                   dataCursor="explore"
                 >
                   <span className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-full bg-charcoal text-warm-ivory text-[10px] font-sans tracking-[0.22em] uppercase font-medium hover:bg-charcoal/85 transition-colors">
-                    <span>EXPLORE RESIDENCE</span>
+                    <span>KHÁM PHÁ CHI TIẾT</span>
                     <span>→</span>
                   </span>
                 </MagneticButton>
@@ -192,7 +192,7 @@ export function ResidenceSelectorSection() {
                       : "text-charcoal/60 hover:text-charcoal"
                   }`}
                 >
-                  RENDER
+                  PHỐI CẢNH 3D
                 </button>
                 <button
                   onClick={() => setViewMode("blueprint")}
@@ -202,7 +202,7 @@ export function ResidenceSelectorSection() {
                       : "text-charcoal/60 hover:text-charcoal"
                   }`}
                 >
-                  BLUEPRINT &amp; PINS
+                  MẶT BẰNG &amp; ĐIỂM CHẠM
                 </button>
               </div>
             </div>
@@ -242,13 +242,13 @@ export function ResidenceSelectorSection() {
                   {/* Architectural Blueprint Linework Outline */}
                   <div className="relative w-full h-full border border-charcoal/30 flex flex-col justify-between p-6">
                     <div className="flex justify-between items-start text-[10px] font-mono tracking-widest text-charcoal/60 uppercase">
-                      <span>PLAN VIEW: {selectedResidence.name}</span>
-                      <span>SCALE: 1:100 @ A1</span>
+                      <span>SƠ ĐỒ MẶT BẰNG: {selectedResidence.name}</span>
+                      <span>TỈ LỆ: 1:100 @ A1</span>
                     </div>
 
                     <div className="border border-dashed border-charcoal/20 m-auto w-3/4 h-3/5 relative flex items-center justify-center">
-                      <span className="font-serif italic text-charcoal/30 text-2xl">
-                        Architectural Floorplan Diagram
+                      <span className="font-serif italic text-charcoal/30 text-2xl text-center px-4">
+                        Sơ Đồ Phân Bổ Không Gian Kiến Trúc
                       </span>
 
                       {/* Interactive Blueprint Pins */}
@@ -270,8 +270,8 @@ export function ResidenceSelectorSection() {
                     </div>
 
                     <div className="flex justify-between items-end text-[10px] font-mono tracking-widest text-charcoal/60 uppercase">
-                      <span>DA NANG COASTAL DEVELOPMENT</span>
-                      <span>TAP HOTSPOTS FOR SPATIAL DATA</span>
+                      <span>ĐÀ NẴNG COASTAL RESIDENCES</span>
+                      <span>CHẠM ĐIỂM (+) ĐỂ XEM CHI TIẾT</span>
                     </div>
                   </div>
                 </div>
@@ -289,7 +289,7 @@ export function ResidenceSelectorSection() {
               <div className="p-4 bg-charcoal text-warm-ivory rounded-none flex items-center justify-between text-xs animate-fadeIn">
                 <div>
                   <span className="text-[10px] font-sans tracking-[0.2em] uppercase text-warm-ivory/50 block">
-                    HIGHLIGHTED SPATIAL HOTSPOT
+                    ĐIỂM CHẠM KHÔNG GIAN
                   </span>
                   <p className="font-serif text-lg font-light text-warm-ivory">{activeHotspot.name}</p>
                   <p className="font-serif italic text-sm text-warm-ivory/70">{activeHotspot.detail}</p>
@@ -304,8 +304,8 @@ export function ResidenceSelectorSection() {
             )}
 
             <div className="flex items-center justify-between text-xs text-charcoal/60 font-sans tracking-wide">
-              <span>NATURAL LIGHTING OPTIMIZATION: 94% COEFFICIENT</span>
-              <span className="italic font-serif">Acoustic Glazing &amp; Teak Joinery</span>
+              <span>HỆ SỐ ĐÓN SÁNG TỰ NHIÊN: 94%</span>
+              <span className="italic font-serif">Kính Cách Âm &amp; Gỗ Tếch Bản Địa</span>
             </div>
           </div>
         </div>
@@ -324,14 +324,14 @@ export function ResidenceSelectorSection() {
             {/* Close button */}
             <button
               onClick={() => setActiveModalResidence(null)}
-              aria-label="Close residence modal"
+              aria-label="Đóng bảng chi tiết"
               className="absolute top-6 right-6 p-2 text-charcoal/60 hover:text-charcoal text-2xl font-light focus:outline-none"
             >
               ✕
             </button>
 
             <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 block mb-2">
-              ARCHITECTURAL SPECIFICATION
+              HỒ SƠ THIẾT KẾ KIẾN TRÚC
             </span>
             <h3 className="font-serif text-3xl md:text-5xl font-light text-charcoal">
               {activeModalResidence.name}
@@ -352,7 +352,7 @@ export function ResidenceSelectorSection() {
               <div className="relative h-64 md:h-80 w-full overflow-hidden bg-charcoal/5">
                 <Image
                   src={activeModalResidence.secondaryImage}
-                  alt={`${activeModalResidence.name} Interior`}
+                  alt={`${activeModalResidence.name} Nội Thất`}
                   fill
                   className="object-cover"
                 />
@@ -361,7 +361,7 @@ export function ResidenceSelectorSection() {
 
             <div className="space-y-4 border-t border-charcoal/15 pt-6">
               <h4 className="font-serif text-xl text-charcoal font-normal">
-                Residence Narrative &amp; Finishes
+                Triết Lý Không Gian &amp; Bàn Giao
               </h4>
               <p className="font-serif italic text-base md:text-lg text-charcoal/80 leading-relaxed">
                 {activeModalResidence.description}
@@ -369,19 +369,19 @@ export function ResidenceSelectorSection() {
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 text-xs font-sans tracking-[0.18em] uppercase text-charcoal/70">
                 <div className="p-3 bg-stone/20">
-                  <span className="text-[10px] text-charcoal/40 block">BEDROOMS</span>
+                  <span className="text-[10px] text-charcoal/40 block">PHÒNG NGỦ</span>
                   <span className="font-medium text-charcoal">{activeModalResidence.bedrooms}</span>
                 </div>
                 <div className="p-3 bg-stone/20">
-                  <span className="text-[10px] text-charcoal/40 block">INTERNAL AREA</span>
+                  <span className="text-[10px] text-charcoal/40 block">DIỆN TÍCH THÔNG THỦY</span>
                   <span className="font-medium text-charcoal">{activeModalResidence.area}</span>
                 </div>
                 <div className="p-3 bg-stone/20">
-                  <span className="text-[10px] text-charcoal/40 block">CEILING HEIGHT</span>
-                  <span className="font-medium text-charcoal">3.20 METERS</span>
+                  <span className="text-[10px] text-charcoal/40 block">CHIỀU CAO TRẦN</span>
+                  <span className="font-medium text-charcoal">3.20 MÉT</span>
                 </div>
                 <div className="p-3 bg-stone/20">
-                  <span className="text-[10px] text-charcoal/40 block">STARTING AT</span>
+                  <span className="text-[10px] text-charcoal/40 block">MỨC ĐẦU TƯ TỪ</span>
                   <span className="font-medium text-charcoal">{activeModalResidence.priceStarting}</span>
                 </div>
               </div>
@@ -393,7 +393,7 @@ export function ResidenceSelectorSection() {
                 onClick={() => setActiveModalResidence(null)}
                 className="px-8 py-3 rounded-full bg-charcoal text-warm-ivory text-xs font-sans tracking-[0.25em] uppercase font-medium hover:bg-charcoal/85 transition-colors"
               >
-                REQUEST FLOORPLAN DOSSIER
+                YÊU CẦU TRỌN BỘ HỒ SƠ MẶT BẰNG
               </a>
             </div>
           </div>

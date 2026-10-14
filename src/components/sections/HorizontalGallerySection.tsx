@@ -93,11 +93,11 @@ export function HorizontalGallerySection() {
       <div className="w-full max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 pt-8 md:pt-14 pb-4 flex items-center justify-between">
         <div className="flex items-center space-x-4">
           <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-            SPATIAL JOURNEY
+            HÀNH TRÌNH KHÔNG GIAN
           </span>
           <span className="w-12 h-[1px] bg-charcoal/20" />
           <span className="font-serif text-lg italic text-charcoal/80 hidden sm:inline-block">
-            Architectural Perspectives
+            Góc Nhìn Kiến Trúc Đương Đại
           </span>
         </div>
 
@@ -163,8 +163,8 @@ export function HorizontalGallerySection() {
         </div>
 
         <div className="flex items-center space-x-6 text-[11px] font-sans tracking-[0.2em] uppercase text-charcoal/50">
-          <span className="hidden sm:inline-block">SCROLL OR DRAG TO EXPLORE</span>
-          <span className="text-charcoal/70 font-medium">SOLARA DA NANG</span>
+          <span className="hidden sm:inline-block">CUỘN HOẶC KÉO ĐỂ KHÁM PHÁ</span>
+          <span className="text-charcoal/70 font-medium">SOLARA ĐÀ NẴNG</span>
         </div>
       </div>
     </section>

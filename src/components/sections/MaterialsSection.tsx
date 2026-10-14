@@ -19,18 +19,18 @@ export function MaterialsSection() {
           <div>
             <div className="flex items-center space-x-4 mb-4">
               <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-                04 — MATERIALITY
+                05 — NGHỆ THUẬT VẬT LIỆU
               </span>
               <span className="w-16 h-[1px] bg-charcoal/20" />
             </div>
             <h2 className="font-serif text-[clamp(44px,7.5vw,115px)] leading-[0.95] font-light text-charcoal">
-              Materials
-              <span className="block italic text-charcoal/85">that age beautifully.</span>
+              Chất liệu
+              <span className="block italic text-charcoal/85">đẹp mãi với thời gian.</span>
             </h2>
           </div>
 
           <p className="mt-6 lg:mt-0 font-serif italic text-lg md:text-2xl text-charcoal/70 max-w-md">
-            Selected for their tactile resonance and quiet ability to develop a graceful patina over generations of coastal exposure.
+            Được tuyển chọn kỹ lưỡng vì sự mộc mạc và khả năng lưu giữ nét đẹp thời gian sau nhiều thế hệ đón gió biển.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export function MaterialsSection() {
                       {mat.description}
                     </p>
                     <span className="text-[10px] font-sans tracking-[0.2em] text-charcoal/50 uppercase block mt-2">
-                      FINISH: {mat.finish}
+                      HOÀN THIỆN: {mat.finish}
                     </span>
                   </div>
                 </div>
@@ -105,19 +105,19 @@ export function MaterialsSection() {
 
               {/* Provenance Badge */}
               <div className="absolute top-6 left-6 z-10 bg-warm-ivory/90 backdrop-blur-md px-4 py-2 border border-charcoal/10 text-[10px] font-sans tracking-[0.22em] uppercase text-charcoal shadow-sm">
-                MACRO DETAIL · {activeMaterial.name}
+                CHI TIẾT MACRO · {activeMaterial.name}
               </div>
 
               {/* Texture specs */}
               <div className="absolute bottom-6 left-6 right-6 z-10 flex justify-between items-center bg-charcoal/85 backdrop-blur-md text-warm-ivory px-5 py-3 text-xs font-sans tracking-[0.2em] uppercase shadow-md">
-                <span>ORIGIN: {activeMaterial.origin}</span>
+                <span>XUẤT XỨ: {activeMaterial.origin}</span>
                 <span>{activeMaterial.finish}</span>
               </div>
             </div>
 
             <div className="flex items-center justify-between text-xs text-charcoal/60 font-sans tracking-wide">
-              <span>UNPOLISHED &amp; POROUS FINISHES</span>
-              <span className="italic font-serif">Low Embodied Carbon Extraction</span>
+              <span>BỀ MẶT THÔ TỰ NHIÊN &amp; GIỮ VÂN LỖ XỐP</span>
+              <span className="italic font-serif">Khai Thác Bền Vững &amp; Giảm Dấu Chân Carbon</span>
             </div>
           </div>
         </div>

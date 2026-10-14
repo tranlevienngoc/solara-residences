@@ -92,7 +92,7 @@ export function LocationSection() {
       >
         <Image
           src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2600&q=85"
-          alt="Da Nang Coastal Beach Aerial View"
+          alt="Bờ Biển Mỹ Khê Đà Nẵng Toàn Cảnh"
           fill
           sizes="100vw"
           className="object-cover object-center"
@@ -106,10 +106,10 @@ export function LocationSection() {
       {/* Top Header */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto flex items-center justify-between text-xs font-sans tracking-[0.25em] uppercase text-warm-ivory/80">
         <div className="flex items-center space-x-3">
-          <span>02 — LOCATION</span>
+          <span>02 — VỊ TRÍ CHIẾN LƯỢC</span>
           <span className="w-10 h-[1px] bg-warm-ivory/30" />
         </div>
-        <span>DA NANG · VIETNAM</span>
+        <span>ĐÀ NẴNG · VIỆT NAM</span>
       </div>
 
       {/* Center Monumental Editorial Statement */}
@@ -119,16 +119,16 @@ export function LocationSection() {
       >
         <div className="max-w-3xl">
           <span className="text-xs md:text-sm font-sans tracking-[0.35em] uppercase text-warm-ivory/70 block mb-4">
-            SANCTUARY BY THE SHORE
+            CHỐN NGHỈ DƯỠNG HIẾM CÓ BÊN ĐẠI DƯƠNG
           </span>
           <h2 className="font-serif text-[clamp(44px,7.5vw,115px)] leading-[0.95] font-light tracking-[-0.02em] text-warm-ivory">
-            A rare
+            Tọa độ ven biển
             <span className="block italic font-light text-warm-ivory/90">
-              coastal address.
+              độc bản.
             </span>
           </h2>
           <p className="mt-6 md:mt-8 font-serif text-xl md:text-2xl lg:text-3xl text-warm-ivory/80 font-light tracking-wide max-w-xl">
-            &ldquo;Minutes from the city, steps from the sea.&rdquo;
+            &ldquo;Vài phút chạm phố, vài bước chạm biển.&rdquo;
           </p>
         </div>
       </div>

@@ -8,36 +8,36 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const STORY_ITEMS = [
   {
     id: "morning-light",
-    title: "MORNING LIGHT",
-    subtitle: "FIG 02.1 — THE LIMESTONE COLONNADE",
-    quote: "Filter sunlight through vertical fins, creating shifting geometric rhythms throughout the day.",
+    title: "ÁNH NẮNG BAN MAI",
+    subtitle: "HÌNH 02.1 — HÀNG CỘT ĐÁ VÔI",
+    quote: "Ánh nắng ban mai xuyên qua hệ lam chắn nắng, vẽ nên vũ điệu hình học biến chuyển kỳ ảo theo thời gian trong ngày.",
     image:
       "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85",
     isLarge: true,
   },
   {
     id: "private-terraces",
-    title: "PRIVATE TERRACES",
-    subtitle: "FIG 02.2 — SEAMLESS THRESHOLDS",
-    quote: "Deep sheltered verandas extend the living area toward the eternal horizon of the East Sea.",
+    title: "BAN CÔNG BIỆT LẬP",
+    subtitle: "HÌNH 02.2 — RANH GIỚI VÔ TẬN",
+    quote: "Hiên nghỉ sâu rộng lộng gió đại dương, mở rộng không gian sống hướng thẳng về chân trời bao la của biển Đông.",
     image:
       "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1400&q=85",
     isLarge: false,
   },
   {
     id: "tropical-landscapes",
-    title: "TROPICAL LANDSCAPES",
-    subtitle: "FIG 02.3 — BIOPHILIC INTEGRATION",
-    quote: "Courtyards planted with native coastal flora create microclimates of profound serenity.",
+    title: "CẢNH QUAN NHIỆT ĐỚI",
+    subtitle: "HÌNH 02.3 — HÒA QUYỆN SINH THÁI",
+    quote: "Những khoảnh vườn duyên hải xanh mát tạo nên vi khí hậu thanh bình, xoa dịu mọi giác quan sau ngày dài bận rộn.",
     image:
       "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=85",
     isLarge: false,
   },
   {
     id: "the-sea-beyond",
-    title: "THE SEA BEYOND",
-    subtitle: "FIG 02.4 — INFINITE CONTINUUM",
-    quote: "Living rooms framed by floor-to-ceiling acoustic glass dissolve all separation from ocean water.",
+    title: "ĐẠI DƯƠNG VÔ CỰC",
+    subtitle: "HÌNH 02.4 — SỰ LIỀN MẠCH VĨNH CỬU",
+    quote: "Phòng khách ngập tràn ánh sáng với vách kính cách âm chạm sàn, xóa nhòa mọi khoảng cách với mặt biển khơi.",
     image:
       "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=2000&q=85",
     isLarge: true,
@@ -106,14 +106,14 @@ export function EditorialGallerySection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 md:mb-32 pb-8 border-b border-charcoal/15">
           <div>
             <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium block mb-3">
-              EDITORIAL PERSPECTIVE
+              GÓC NHÌN NGHỆ THUẬT
             </span>
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl font-light text-charcoal">
-              A symphony of <span className="italic">light &amp; stone.</span>
+              Bản giao hưởng của <span className="italic">ánh sáng &amp; đá tự nhiên.</span>
             </h2>
           </div>
           <p className="mt-4 md:mt-0 font-serif italic text-lg md:text-xl text-charcoal/60 max-w-sm">
-            Curated photographic moments capturing the tactile atmosphere of Solara.
+            Những khoảnh khắc nhiếp ảnh ghi lại bầu không khí xúc cảm và nét tĩnh lặng tinh khôi tại Solara.
           </p>
         </div>
 

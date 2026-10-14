@@ -99,8 +99,8 @@ export function StatementSection() {
 
       {/* Top Subtle Brand Marker */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto flex items-center justify-between text-xs font-sans tracking-[0.25em] uppercase text-warm-ivory/70">
-        <span>COASTAL CONTINUUM</span>
-        <span>DA NANG</span>
+        <span>SỰ LIỀN MẠCH CỦA ĐẠI DƯƠNG</span>
+        <span>ĐÀ NẴNG</span>
       </div>
 
       {/* Center Monumental Editorial Statement */}
@@ -108,7 +108,7 @@ export function StatementSection() {
         <h2 className="statement-title font-serif text-[clamp(54px,12.5vw,190px)] leading-[0.88] tracking-[-0.02em] font-light text-warm-ivory uppercase drop-shadow-[0_4px_30px_rgba(0,0,0,0.3)] will-change-transform">
           <span className="block overflow-hidden py-1">
             <span ref={line1Ref} className="block will-change-transform">
-              THE SEA
+              BIỂN XANH
             </span>
           </span>
           <span className="block overflow-hidden py-1">
@@ -116,12 +116,12 @@ export function StatementSection() {
               ref={line2Ref}
               className="block italic font-light will-change-transform text-warm-ivory/90"
             >
-              BECOMES
+              HÓA THÀNH
             </span>
           </span>
           <span className="block overflow-hidden py-1">
             <span ref={line3Ref} className="block will-change-transform">
-              HOME.
+              TỔ ẤM.
             </span>
           </span>
         </h2>
@@ -130,14 +130,14 @@ export function StatementSection() {
           ref={subtextRef}
           className="mt-6 md:mt-8 font-sans text-xs md:text-sm tracking-[0.35em] uppercase text-warm-ivory/80 font-light"
         >
-          AN ARCHITECTURAL ODE TO SHORELINE TRANQUILITY
+          BẢN GIAO HƯỞNG KIẾN TRÚC BÊN BỜ SÓNG VỖ
         </p>
       </div>
 
       {/* Bottom Coordinates */}
       <div className="relative z-10 w-full max-w-[1600px] mx-auto flex items-center justify-between text-[11px] font-sans tracking-[0.25em] uppercase text-warm-ivory/60">
         <span>SOLARA RESIDENCES</span>
-        <span>LIMITED RELEASE</span>
+        <span>PHIÊN BẢN GIỚI HẠN</span>
       </div>
     </section>
   );

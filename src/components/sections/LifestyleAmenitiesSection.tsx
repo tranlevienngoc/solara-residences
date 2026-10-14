@@ -67,18 +67,18 @@ export function LifestyleAmenitiesSection() {
           <div>
             <div className="flex items-center space-x-4 mb-4">
               <span className="text-xs font-sans tracking-[0.3em] uppercase text-charcoal/50 font-medium">
-                SANCTUARY &amp; WELLBEING
+                TIỆN ÍCH &amp; NGHỈ DƯỠNG
               </span>
               <span className="w-16 h-[1px] bg-charcoal/20" />
             </div>
             <h2 className="font-serif text-[clamp(44px,7.5vw,115px)] leading-[0.95] font-light text-charcoal">
-              Designed
-              <span className="block italic text-charcoal/85">around wellbeing.</span>
+              Kiến tạo
+              <span className="block italic text-charcoal/85">cho sức khỏe &amp; an yên.</span>
             </h2>
           </div>
 
           <p className="mt-6 lg:mt-0 font-serif italic text-lg md:text-2xl text-charcoal/70 max-w-md">
-            Holistic amenities conceived to nurture the body, quiet the mind, and connect residents with coastal nature.
+            Hệ tiện ích đặc quyền được kiến tạo để chăm sóc thân - tâm - trí và gắn kết trọn vẹn với thiên nhiên miền biển.
           </p>
         </div>
 

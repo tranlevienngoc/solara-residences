@@ -87,7 +87,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
     <div
       className="fixed inset-0 z-[10000] pointer-events-auto flex overflow-hidden select-none"
       aria-live="polite"
-      aria-label="Loading Solara Residences"
+      aria-label="Đang chuẩn bị không gian Solara Residences"
     >
       {/* Left Architectural Curtain Panel */}
       <div
@@ -95,10 +95,10 @@ export function Preloader({ onComplete }: PreloaderProps) {
         className="w-1/2 h-full bg-[#F2EFE8] border-r border-charcoal/10 relative flex flex-col justify-between p-8 md:p-14"
       >
         <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-charcoal/50">
-          DA NANG · VIETNAM
+          ĐÀ NẴNG · VIỆT NAM
         </span>
         <div className="text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-charcoal/40">
-          16°03&apos;24&quot;N 108°14&apos;45&quot;E
+          16°03&apos;24&quot;B 108°14&apos;45&quot;Đ
         </div>
       </div>
 
@@ -108,14 +108,14 @@ export function Preloader({ onComplete }: PreloaderProps) {
         className="w-1/2 h-full bg-[#F2EFE8] border-l border-charcoal/10 relative flex flex-col justify-between p-8 md:p-14 items-end"
       >
         <span className="text-[10px] md:text-xs font-sans uppercase tracking-[0.3em] text-charcoal/50">
-          COLLECTION 2026
+          BỘ SƯU TẬP 2026
         </span>
         <div className="text-[10px] md:text-xs font-sans uppercase tracking-[0.25em] text-charcoal/40">
-          LIMITED 28 HOMES
+          GIỚI HẠN 28 DINH THỰ
         </div>
       </div>
 
-      {/* Floating Center Identity & Counter (fixed across both curtains) */}
+      {/* Floating Center Identity & Counter */}
       <div
         ref={centerContentRef}
         className="absolute inset-0 z-20 flex flex-col items-center justify-center pointer-events-none"
@@ -159,7 +159,7 @@ export function Preloader({ onComplete }: PreloaderProps) {
         </div>
 
         <p className="text-[11px] tracking-[0.3em] uppercase text-charcoal/50 font-sans mt-6">
-          A place shaped by light.
+          Nơi ánh sáng định hình không gian.
         </p>
       </div>
     </div>
